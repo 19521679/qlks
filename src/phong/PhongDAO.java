@@ -251,7 +251,7 @@ public class PhongDAO {
 
     public Integer querySoNgayThueByTP(ThuePhong tp) {
 
-        String sqlQuery = "SELECT NGKT-NGBD SONGAY FROM THUE_PHONG WHERE MAPH = ?  AND MAPHIEUTP =? " +
+        String sqlQuery = "SELECT TO_DATE(NGKT,'dd/MM/yyyy')-TO_DATE(NGBD,'dd/MM/yyyy') SONGAY FROM THUE_PHONG WHERE MAPH = ?  AND MAPHIEUTP =? " +
                 " Order by MAPH";
         try {
             PreparedStatement preparedStatementShow = this.connection.prepareStatement(sqlQuery);

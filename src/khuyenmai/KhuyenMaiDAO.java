@@ -13,7 +13,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class KhuyenMaiDAO {
-    Connection connection=null;
+    Connection connection = null;
+
     public ArrayList<KhuyenMai> queryAllkm() {
         ArrayList<KhuyenMai> list = new ArrayList<>();
         String sqlQuery = "SELECT * from KhuyenMai Order by MAKM";
@@ -24,15 +25,15 @@ public class KhuyenMaiDAO {
 
             while (rs.next()) {
 
-                String makm=rs.getString("MAKM");
-                String tenkm =rs.getString("TENKM");
-                String mota=rs.getString("MOTA");
-                Float tile=rs.getFloat("TILE");
-                Date ngaybd=rs.getDate("NGAYBD");
-                Date ngaykt=rs.getDate("NGAYKT");
-                
+                String makm = rs.getString("MAKM");
+                String tenkm = rs.getString("TENKM");
+                String mota = rs.getString("MOTA");
+                Float tile = rs.getFloat("TILE");
+                Date ngaybd = rs.getDate("NGAYBD");
+                Date ngaykt = rs.getDate("NGAYKT");
 
-                list.add(new KhuyenMai(makm,tenkm,mota,tile,ngaybd,ngaykt));
+
+                list.add(new KhuyenMai(makm, tenkm, mota, tile, ngaybd, ngaykt));
 
             }
         } catch (SQLException e) {
@@ -50,15 +51,15 @@ public class KhuyenMaiDAO {
 
             while (rs.next()) {
 
-                String makm=rs.getString("MAKM");
-                String tenkm =rs.getString("TENKM");
-                String mota=rs.getString("MOTA");
-                Float tile=rs.getFloat("TILE");
-                Date ngaybd=rs.getDate("NGAYBD");
-                Date ngaykt=rs.getDate("NGAYKT");
+                String makm = rs.getString("MAKM");
+                String tenkm = rs.getString("TENKM");
+                String mota = rs.getString("MOTA");
+                Float tile = rs.getFloat("TILE");
+                Date ngaybd = rs.getDate("NGAYBD");
+                Date ngaykt = rs.getDate("NGAYKT");
 
 
-                list.add(new KhuyenMai(makm,tenkm,mota,tile,ngaybd,ngaykt));
+                list.add(new KhuyenMai(makm, tenkm, mota, tile, ngaybd, ngaykt));
 
             }
         } catch (SQLException e) {
@@ -72,49 +73,51 @@ public class KhuyenMaiDAO {
                 " TO_DATE(NGAYBD,'dd/MM/yyyy') <= TO_DATE(?,'dd/MM/yyyy') AND TO_DATE(NGAYKT,'dd/MM/yyyy') >= TO_DATE(?,'dd/MM/yyyy') AND MOTA='thanhvien' Order by MAKM";
         try {
             PreparedStatement preparedStatementShow = this.connection.prepareStatement(sqlQuery);
-            preparedStatementShow.setDate(1,new java.sql.Date(endDate.getTime()));
-            preparedStatementShow.setDate(2,new java.sql.Date(startDate.getTime()));
+            preparedStatementShow.setDate(1, new java.sql.Date(endDate.getTime()));
+            preparedStatementShow.setDate(2, new java.sql.Date(startDate.getTime()));
             ResultSet rs = preparedStatementShow.executeQuery();
 
             while (rs.next()) {
 
-                String makm=rs.getString("MAKM");
-                String tenkm =rs.getString("TENKM");
-                String mota=rs.getString("MOTA");
-                Float tile=rs.getFloat("TILE");
-                Date ngaybd=rs.getDate("NGAYBD");
-                Date ngaykt=rs.getDate("NGAYKT");
+                String makm = rs.getString("MAKM");
+                String tenkm = rs.getString("TENKM");
+                String mota = rs.getString("MOTA");
+                Float tile = rs.getFloat("TILE");
+                Date ngaybd = rs.getDate("NGAYBD");
+                Date ngaykt = rs.getDate("NGAYKT");
 
 
-                list.add(new KhuyenMai(makm,tenkm,mota,tile,ngaybd,ngaykt));
+                list.add(new KhuyenMai(makm, tenkm, mota, tile, ngaybd, ngaykt));
 
             }
-        } catch (SQLException e) {            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return list;
 
     }
+
     public ArrayList<KhuyenMai> queryKMThuongByDate(Date startDate, Date endDate) {
         ArrayList<KhuyenMai> list = new ArrayList<>();
         String sqlQuery = "SELECT * from KhuyenMai WHERE " +
-                " TO_DATE(NGAYBD,'dd/MM/yyyy') <= TO_DATE(?,'dd/MM/yyyy') AND TO_DATE(NGAYKT,'dd/MM/yyyy') >= TO_DATE(?,'dd/MM/yyyy') AND MOTA<>'thanhvien' Order by MAKM";
+                " TO_DATE(NGAYBD,'dd/MM/yyyy') <= TO_DATE(?,'dd/MM/yyyy') AND TO_DATE(NGAYKT,'dd/MM/yyyy') >= TO_DATE(?,'dd/MM/yyyy') AND MOTA!='thanhvien' Order by MAKM";
         try {
             PreparedStatement preparedStatementShow = this.connection.prepareStatement(sqlQuery);
-            preparedStatementShow.setDate(1,new java.sql.Date(endDate.getTime()));
-            preparedStatementShow.setDate(2,new java.sql.Date(startDate.getTime()));
+            preparedStatementShow.setDate(1, new java.sql.Date(endDate.getTime()));
+            preparedStatementShow.setDate(2, new java.sql.Date(startDate.getTime()));
             ResultSet rs = preparedStatementShow.executeQuery();
 
             while (rs.next()) {
 
-                String makm=rs.getString("MAKM");
-                String tenkm =rs.getString("TENKM");
-                String mota=rs.getString("MOTA");
-                Float tile=rs.getFloat("TILE");
-                Date ngaybd=rs.getDate("NGAYBD");
-                Date ngaykt=rs.getDate("NGAYKT");
+                String makm = rs.getString("MAKM");
+                String tenkm = rs.getString("TENKM");
+                String mota = rs.getString("MOTA");
+                Float tile = rs.getFloat("TILE");
+                Date ngaybd = rs.getDate("NGAYBD");
+                Date ngaykt = rs.getDate("NGAYKT");
 
 
-                list.add(new KhuyenMai(makm,tenkm,mota,tile,ngaybd,ngaykt));
+                list.add(new KhuyenMai(makm, tenkm, mota, tile, ngaybd, ngaykt));
 
             }
         } catch (SQLException e) {
@@ -122,6 +125,7 @@ public class KhuyenMaiDAO {
         }
         return list;
     }
+
     public ArrayList<KhuyenMai> queryKMThuong() {
         ArrayList<KhuyenMai> list = new ArrayList<>();
         String sqlQuery = "SELECT * from KhuyenMai WHERE MOTA = 'thuong' Order by MAKM";
@@ -132,15 +136,15 @@ public class KhuyenMaiDAO {
 
             while (rs.next()) {
 
-                String makm=rs.getString("MAKM");
-                String tenkm =rs.getString("TENKM");
-                String mota=rs.getString("MOTA");
-                Float tile=rs.getFloat("TILE");
-                Date ngaybd=rs.getDate("NGAYBD");
-                Date ngaykt=rs.getDate("NGAYKT");
+                String makm = rs.getString("MAKM");
+                String tenkm = rs.getString("TENKM");
+                String mota = rs.getString("MOTA");
+                Float tile = rs.getFloat("TILE");
+                Date ngaybd = rs.getDate("NGAYBD");
+                Date ngaykt = rs.getDate("NGAYKT");
 
 
-                list.add(new KhuyenMai(makm,tenkm,mota,tile,ngaybd,ngaykt));
+                list.add(new KhuyenMai(makm, tenkm, mota, tile, ngaybd, ngaykt));
 
             }
         } catch (SQLException e) {
@@ -148,8 +152,7 @@ public class KhuyenMaiDAO {
         return list;
     }
 
-    public void remove(KhuyenMai km)
-    {
+    public void remove(KhuyenMai km) {
         String SQL = "delete from KhuyenMai where MAKM=?";
 
 
@@ -165,8 +168,8 @@ public class KhuyenMaiDAO {
 
 
     }
-    public void insert(KhuyenMai km)
-    {
+
+    public void insert(KhuyenMai km) {
         String SQL = "insert into KhuyenMai( MAKM, TENKM, MOTA, TILE, NGAYBD,NGAYKT) values(?,?,?,?,?,?)";
 
 
@@ -179,7 +182,7 @@ public class KhuyenMaiDAO {
             ps.setString(3, km.getMOTA());
             ps.setFloat(4, km.getTILE());
 
-            ps.setDate(5,new java.sql.Date(km.getNGBD().getTime()));
+            ps.setDate(5, new java.sql.Date(km.getNGBD().getTime()));
             ps.setDate(6, new java.sql.Date(km.getNGKT().getTime()));
 
             ps.executeUpdate();
@@ -188,6 +191,7 @@ public class KhuyenMaiDAO {
 
         }
     }
+
     public void update(KhuyenMai km) {
         String SQL = "update KhuyenMai set   TENKM=?, MOTA=?, TILE=?, NGAYBD=?, NGAYKT=? where MAKM = ?";
 
@@ -201,7 +205,7 @@ public class KhuyenMaiDAO {
             ps.setString(3, km.getMOTA());
             ps.setFloat(4, km.getTILE());
 
-            ps.setDate(5,new java.sql.Date(km.getNGBD().getTime()));
+            ps.setDate(5, new java.sql.Date(km.getNGBD().getTime()));
             ps.setDate(6, new java.sql.Date(km.getNGKT().getTime()));
 
             ps.executeUpdate();
@@ -209,8 +213,8 @@ public class KhuyenMaiDAO {
             throwables.printStackTrace();
         }
     }
-    public boolean insertKMintoHD(HoaDon hd, KhuyenMai km)
-    {
+
+    public boolean insertKMintoHD(HoaDon hd, KhuyenMai km) {
         String SQL = "update HOADON set   MAKM=? where SOHD = ?";
 
 
@@ -222,7 +226,6 @@ public class KhuyenMaiDAO {
             ps.setString(2, hd.getSOHD());
 
 
-
             ps.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -232,9 +235,7 @@ public class KhuyenMaiDAO {
     }
 
 
-
-    public ArrayList<KhuyenMai> find(KhuyenMai km)
-    {
+    public ArrayList<KhuyenMai> find(KhuyenMai km) {
         return new ArrayList<>();
     }
 
@@ -243,35 +244,35 @@ public class KhuyenMaiDAO {
         setConnection();
     }
 
-    public boolean setConnection()
-    {
-        this.connection= Database.getConnection();
-        if (connection==null) {
+    public boolean setConnection() {
+        this.connection = Database.getConnection();
+        if (connection == null) {
             JOptionPane.showMessageDialog(null, "Can not connect to database.");
             System.exit(1);
             return false;
         }
         return true;
     }
+
     public KhuyenMai queryByHD(HoaDon hd) {
-       KhuyenMai khuyenmai = null;
+        KhuyenMai khuyenmai = null;
         String sqlQuery = "SELECT * from KhuyenMai WHERE MAKM =? Order by MAKM";
         try {
             PreparedStatement preparedStatementShow = this.connection.prepareStatement(sqlQuery);
-            preparedStatementShow.setString(1,hd.getMAKM());
+            preparedStatementShow.setString(1, hd.getMAKM());
             ResultSet rs = preparedStatementShow.executeQuery();
 
             while (rs.next()) {
 
-                String makm=rs.getString("MAKM");
-                String tenkm =rs.getString("TENKM");
-                String mota=rs.getString("MOTA");
-                Float tile=rs.getFloat("TILE");
-                Date ngaybd=rs.getDate("NGAYBD");
-                Date ngaykt=rs.getDate("NGAYKT");
+                String makm = rs.getString("MAKM");
+                String tenkm = rs.getString("TENKM");
+                String mota = rs.getString("MOTA");
+                Float tile = rs.getFloat("TILE");
+                Date ngaybd = rs.getDate("NGAYBD");
+                Date ngaykt = rs.getDate("NGAYKT");
 
 
-                khuyenmai= new KhuyenMai(makm,tenkm,mota,tile,ngaybd,ngaykt);
+                khuyenmai = new KhuyenMai(makm, tenkm, mota, tile, ngaybd, ngaykt);
 
             }
         } catch (SQLException e) {

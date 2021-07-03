@@ -64,6 +64,7 @@ public class DatPhong extends javax.swing.JFrame {
         btnKH.setFont(new Font("Tahoma", 0, 16));
         dateTuNgay.setEnabled(false);
         dateDenNgay.setEnabled(false);
+        btnKM.setVisible(false);
     }
 
 
