@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="quanlykhachsan:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/quanlykhachsan_jar</output-path>
+    <root id="archive" name="quanlykhachsan.jar">
+      <element id="module-output" name="quanlykhachsan" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/tool/jcalendar-1.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/tool/swing-layout-1.0.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/tool/ojdbc10.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
