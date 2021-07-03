@@ -19,6 +19,7 @@ import java.util.logging.Logger;
 public class    TaiKhoanDAO {
     private static Connection connection = Database.getConnection();
     private static TaiKhoan taikhoan;
+    private static NhanVien nhanvien;
     public TaiKhoan getTaiKhoan()
     {
         return taikhoan;
@@ -57,7 +58,7 @@ public class    TaiKhoanDAO {
                     taikhoan.setTGDNGN(rs.getDate("TGDNGN"));
                     taikhoan.setTRANGTHAI(rs.getString("TRANGTHAI"));
                     taikhoan.setPC(pc);
-                    setDangNhap(taikhoan);
+                    setDangNhap();
                     return true;
                 }
 
@@ -134,7 +135,7 @@ public class    TaiKhoanDAO {
                     taikhoan.setTGDNGN(rs.getDate("TGDNGN"));
                     taikhoan.setTRANGTHAI(rs.getString("TRANGTHAI"));
                     taikhoan.setPC(rs.getString("PC"));
-                    setDangNhap(taikhoan);
+                    setDangNhap();
                     return true;
                 }
             }
@@ -148,7 +149,7 @@ public class    TaiKhoanDAO {
 
     }
 
-    private static void setDangNhap(TaiKhoan tk) {
+    private static void setDangNhap() {
 
         try {
 
@@ -158,11 +159,11 @@ public class    TaiKhoanDAO {
             PreparedStatement ps = connection.prepareStatement(query);
 
             ps.setDate(1, new java.sql.Date(System.currentTimeMillis()));
-            ps.setString(2, tk.getPC());
-            ps.setString(3, tk.getUSERNAME());
+            ps.setString(2, taikhoan.getPC());
+            ps.setString(3, taikhoan.getUSERNAME());
 
             ps.executeUpdate();
-
+            nhanvien= queryNVbyTK(taikhoan);
         } catch (SQLException ex) {
             Logger.getLogger(DichVu.class.getName()).log(Level.SEVERE, null, ex);
 
