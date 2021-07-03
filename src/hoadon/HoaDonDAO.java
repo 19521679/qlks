@@ -56,7 +56,6 @@ public class HoaDonDAO {
     }
 
 
-
     public ArrayList<HoaDon> queryHDByNgay(java.util.Date startDate, java.util.Date endDate) {
         java.sql.Date date1 = new java.sql.Date(startDate.getTime());
         java.sql.Date date2 = new java.sql.Date(endDate.getTime());
@@ -267,7 +266,7 @@ public class HoaDonDAO {
 
     }
 
-    public void thanhToan(HoaDon hd) {
+    public String thanhToan(HoaDon hd) {
         CallableStatement cstmt = null;
         try {
             cstmt = connection.prepareCall("{CALL PROC_PAY_HOADON(?)}");
@@ -276,12 +275,18 @@ public class HoaDonDAO {
             cstmt.setString(1, hd.getSOHD());
 
             cstmt.executeQuery();
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
 
-
+            String[] words1 = throwables.toString().split("ORA-20001:");
+            String StrTemp1 = words1[1];
+            String[] words2 = StrTemp1.split("ORA");
+            String StrTemp2 = words2[0];
+            return StrTemp2;
         }
+
+        return "Thành công";
+
 
     }
 

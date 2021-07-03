@@ -7,6 +7,13 @@ import hoadon.HoaDon;
 import nhanvien.NhanVien;
 import taikhoan.TaiKhoan;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,12 +23,13 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class    TaiKhoanDAO {
+public class TaiKhoanDAO {
     private static Connection connection = Database.getConnection();
     private static TaiKhoan taikhoan;
     private static NhanVien nhanvien;
-    public TaiKhoan getTaiKhoan()
-    {
+
+
+    public static TaiKhoan getTaiKhoan() {
         return taikhoan;
     }
 
@@ -41,7 +49,7 @@ public class    TaiKhoanDAO {
             ResultSet rs = ps.executeQuery();
             if (rs.next() == false) return false;
             String trangthai = rs.getString("TRANGTHAI");
-            System.out.println("Trangthai: "+trangthai);
+            System.out.println("Trangthai: " + trangthai);
 
             if (trangthai.equals("dangnhap")) {
 
@@ -130,7 +138,7 @@ public class    TaiKhoanDAO {
 
             while (rs.next()) {
                 if ((rs.getString("username").equals(tk.USERNAME)) && (rs.getString("password").equals(tk.PASSWORD))) {
-                    taikhoan=tk;
+                    taikhoan = tk;
                     taikhoan.setMANV(rs.getString("MANV"));
                     taikhoan.setTGDNGN(rs.getDate("TGDNGN"));
                     taikhoan.setTRANGTHAI(rs.getString("TRANGTHAI"));
@@ -163,9 +171,12 @@ public class    TaiKhoanDAO {
             ps.setString(3, taikhoan.getUSERNAME());
 
             ps.executeUpdate();
-            nhanvien= queryNVbyTK(taikhoan);
+            nhanvien = queryNVbyTK(taikhoan);
+
+
+
         } catch (SQLException ex) {
-            Logger.getLogger(DichVu.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
 
         }
 

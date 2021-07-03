@@ -71,23 +71,12 @@ private ArrayList<DichVu> listDV ;
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private Image image = Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/background/background.png"));
-
     private void initComponents() {
 
-        jPanelDV = new JPanel(){
-
-            @Override
-            protected void paintComponent(Graphics g)
-            {
-
-                super.paintComponent(g);
-                g.drawImage(image, 0, 0, null);
-
-            }
-        };
+        jPanelDV = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        jLabelAVT = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -102,25 +91,36 @@ private ArrayList<DichVu> listDV ;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jPanelDV.setBackground(new java.awt.Color(255, 255, 255));
         jPanelDV.setPreferredSize(new java.awt.Dimension(1230, 720));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1483, 100));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/background/poster.png"))); // NOI18N
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/poster/Dichvu.png"))); // NOI18N
+
+        jLabelAVT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taikhoan/avatar/NV.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelAVT)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabelAVT)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(MyColor.panel1);
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -133,11 +133,12 @@ private ArrayList<DichVu> listDV ;
             .addGap(0, 56, Short.MAX_VALUE)
         );
 
-        jPanel4.setBackground(MyColor.panel2);
+        jPanel4.setBackground(new java.awt.Color(51, 204, 255));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel3.setText("Nhập mã dịch vụ");
 
+        btnTk.setBackground(MyColor.button);
         btnTk.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnTk.setText("Tìm kiếm");
         btnTk.setToolTipText("");
@@ -163,8 +164,8 @@ private ArrayList<DichVu> listDV ;
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
-                .addComponent(btnTk)
+                .addGap(42, 42, 42)
+                .addComponent(btnTk, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49))
         );
         jPanel4Layout.setVerticalGroup(
@@ -211,6 +212,7 @@ private ArrayList<DichVu> listDV ;
         });
         tablePanel1.setViewportView(jTable2);
 
+        btnT.setBackground(new java.awt.Color(153, 204, 255));
         btnT.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnT.setText("Thêm");
         btnT.setActionCommand("");
@@ -220,6 +222,7 @@ private ArrayList<DichVu> listDV ;
             }
         });
 
+        btnX.setBackground(new java.awt.Color(153, 204, 255));
         btnX.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnX.setText("Xoá");
         btnX.setActionCommand("");
@@ -229,6 +232,7 @@ private ArrayList<DichVu> listDV ;
             }
         });
 
+        btnS.setBackground(new java.awt.Color(153, 204, 255));
         btnS.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnS.setText("Sửa");
         btnS.setActionCommand("");
@@ -238,6 +242,7 @@ private ArrayList<DichVu> listDV ;
             }
         });
 
+        btnTKNC.setBackground(new java.awt.Color(153, 204, 255));
         btnTKNC.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnTKNC.setText("Tìm kiếm nâng cao");
         btnTKNC.setActionCommand("");
@@ -498,6 +503,7 @@ private ArrayList<DichVu> listDV ;
     private javax.swing.JButton btnX;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabelAVT;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;

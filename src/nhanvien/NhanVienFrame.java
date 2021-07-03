@@ -17,6 +17,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import Util.MyColor;
 
 /**
  * @author khanh
@@ -68,23 +69,12 @@ public class NhanVienFrame extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private Image image = Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/background/background.png"));
-
     private void initComponents() {
 
-        jPanelDV = new JPanel(){
-
-            @Override
-            protected void paintComponent(Graphics g)
-            {
-
-                super.paintComponent(g);
-                g.drawImage(image, 0, 0, null);
-
-            }
-        };
+        jPanelDV = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        jLabelAVT = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -99,23 +89,34 @@ public class NhanVienFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanelDV.setBackground(new java.awt.Color(255, 255, 255));
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1483, 100));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/background/poster.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/poster/Nhanvien.png"))); // NOI18N
+
+        jLabelAVT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taikhoan/avatar/NV.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelAVT)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabelAVT)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(MyColor.panel1);
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -128,11 +129,12 @@ public class NhanVienFrame extends javax.swing.JFrame {
             .addGap(0, 56, Short.MAX_VALUE)
         );
 
-        jPanel4.setBackground(MyColor.panel2);
+        jPanel4.setBackground(new java.awt.Color(255, 204, 204));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel3.setText("Nhập mã nhân viên");
 
+        btnTk.setBackground(MyColor.button);
         btnTk.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnTk.setText("Tìm kiếm");
         btnTk.setToolTipText("");
@@ -158,8 +160,8 @@ public class NhanVienFrame extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
-                .addComponent(btnTk)
+                .addGap(63, 63, 63)
+                .addComponent(btnTk, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49))
         );
         jPanel4Layout.setVerticalGroup(
@@ -172,6 +174,8 @@ public class NhanVienFrame extends javax.swing.JFrame {
                     .addComponent(txt1))
                 .addContainerGap())
         );
+
+        tablePanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jTable2.setFont(new java.awt.Font("Courier New", 0, 13)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -198,6 +202,7 @@ public class NhanVienFrame extends javax.swing.JFrame {
             }
         });
         jTable2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jTable2.setGridColor(new java.awt.Color(255, 255, 255));
         jTable2.getTableHeader().setReorderingAllowed(false);
         jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -206,6 +211,7 @@ public class NhanVienFrame extends javax.swing.JFrame {
         });
         tablePanel1.setViewportView(jTable2);
 
+        btnT.setBackground(new java.awt.Color(255, 204, 204));
         btnT.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnT.setText("Thêm");
         btnT.setActionCommand("");
@@ -215,6 +221,7 @@ public class NhanVienFrame extends javax.swing.JFrame {
             }
         });
 
+        btnX.setBackground(new java.awt.Color(255, 204, 204));
         btnX.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnX.setText("Xoá");
         btnX.setActionCommand("");
@@ -224,6 +231,7 @@ public class NhanVienFrame extends javax.swing.JFrame {
             }
         });
 
+        btnS.setBackground(new java.awt.Color(255, 204, 204));
         btnS.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnS.setText("Sửa");
         btnS.setActionCommand("");
@@ -233,6 +241,7 @@ public class NhanVienFrame extends javax.swing.JFrame {
             }
         });
 
+        btnS1.setBackground(new java.awt.Color(255, 204, 204));
         btnS1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnS1.setText("Tìm kiếm nâng cao");
         btnS1.setActionCommand("");
@@ -493,6 +502,7 @@ public class NhanVienFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnX;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabelAVT;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;

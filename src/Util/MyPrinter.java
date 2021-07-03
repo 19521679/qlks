@@ -90,11 +90,11 @@ public class MyPrinter extends Graphics implements Printable {
         return PAGE_EXISTS;
     }
 
-    public void  printMyContent(HoaDon hd, ArrayList<ThuePhong> listtp, ArrayList<ThueDichVu> listtdv)
+    public void  printMyContent(HoaDon hd)
     {
+/*
 
-
-        hoadon=hd; listThueDichVu=listtdv; listThuePhong=listtp;
+        hoadon=hd; listThueDichVu=new DichVuDAO().qu; listThuePhong=listtp;
         khachhang= new KhachHangDAO().queryKHbyHD(hoadon);
         noidung+="KHÁCH SẠN ÁNH DƯƠNG\n" +
                 "Khu phố 6 phường Linh Trung, thành phố Thủ Đức\n"+
@@ -138,9 +138,10 @@ public class MyPrinter extends Graphics implements Printable {
             try {
                 job.print();
             } catch (PrinterException ex) {
-                /* The job did not successfully complete */
+
             }
-        }
+        }*/
+        return;
     }
 
 

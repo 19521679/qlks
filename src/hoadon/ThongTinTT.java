@@ -5,6 +5,7 @@
  */
 package hoadon;
 
+import Util.MyColor;
 import Util.MyConvert;
 import Util.MyPrinter;
 import dichvu.DichVuDAO;
@@ -178,8 +179,8 @@ public class ThongTinTT extends javax.swing.JFrame {
 
         jPanelTTTT = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        dateHD = new javax.swing.JLabel();
+        jLabelAVT = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtSHD = new javax.swing.JLabel();
@@ -195,7 +196,6 @@ public class ThongTinTT extends javax.swing.JFrame {
         jPanelP = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanelDV = new javax.swing.JPanel();
-        btnIHD = new javax.swing.JButton();
         btnKM = new javax.swing.JButton();
         btnTT = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
@@ -215,32 +215,31 @@ public class ThongTinTT extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1483, 100));
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel14.setText("Ngày hoá đơn:");
+        jLabelAVT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taikhoan/avatar/NV.png"))); // NOI18N
 
-        dateHD.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/poster/Thongtinhoadon.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel14)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dateHD, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelAVT)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dateHD, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabelAVT, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel5.setText("SOHD:");
@@ -326,14 +325,6 @@ public class ThongTinTT extends javax.swing.JFrame {
         jPanelDV.setLayout(new java.awt.GridLayout(0, 1, 2, 3));
         jScrollPane3.setViewportView(jPanelDV);
 
-        btnIHD.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        btnIHD.setText("In hoá đơn");
-        btnIHD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIHDActionPerformed(evt);
-            }
-        });
-
         btnKM.setBackground(new java.awt.Color(255, 153, 0));
         btnKM.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnKM.setText("Khuyến mãi:");
@@ -343,7 +334,7 @@ public class ThongTinTT extends javax.swing.JFrame {
             }
         });
 
-        btnTT.setBackground(new java.awt.Color(204, 204, 255));
+        btnTT.setBackground(new java.awt.Color(255, 204, 204));
         btnTT.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnTT.setText("Hoàn tất");
         btnTT.addActionListener(new java.awt.event.ActionListener() {
@@ -384,7 +375,6 @@ public class ThongTinTT extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanelTTTTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelTTTTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnIHD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnKM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnTT, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel10)
@@ -408,10 +398,8 @@ public class ThongTinTT extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelTTTTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelTTTTLayout.createSequentialGroup()
-                        .addComponent(btnKM, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnIHD, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnKM, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(84, 84, 84)
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbTP, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -466,20 +454,25 @@ public class ThongTinTT extends javax.swing.JFrame {
                 options[0]);
 
         if (result == JOptionPane.YES_OPTION) {
-            HDDAO.thanhToan(hoadon);
-            dispose();
-        } else return;
+
+
+            String mess= HDDAO.thanhToan(hoadon);
+            Object[] options2 = {"Chấp nhận"};
+            int result2 = JOptionPane.showOptionDialog(this,
+                    mess,
+                    "Thông báo",
+                    JOptionPane.OK_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    options2,
+                    options2[0]);
+            if(result2==JOptionPane.OK_OPTION)
+            {
+                if (mess.equals("Thành công")) dispose();
+            }
+        }
 
     }//GEN-LAST:event_btnTTActionPerformed
-
-    private void btnIHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIHDActionPerformed
-        // TODO add your handling code here:
-
-        //
-        new MyPrinter().printMyContent(hoadon, listTPh, listDv);
-        dispose();
-
-    }//GEN-LAST:event_btnIHDActionPerformed
 
     private void btnKMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKMActionPerformed
         // TODO add your handling code here:
@@ -550,7 +543,7 @@ public class ThongTinTT extends javax.swing.JFrame {
         listTPh = PDAO.queryTPBySOHD(hoadon);
         listDv = DVDAO.queryTDVBySOHD(hoadon);
         Date date = new Date(System.currentTimeMillis());
-        dateHD.setText(date.toString());
+
         khuyenmai = KMDAO.queryByHD(hoadon);
         txtSHD.setText(hd.getSOHD());
         khachhang = new KhachHangDAO().queryKHbyHD(hoadon);
@@ -572,20 +565,19 @@ public class ThongTinTT extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnIHD;
     private javax.swing.JButton btnKM;
     private javax.swing.JButton btnTT;
-    private javax.swing.JLabel dateHD;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelAVT;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelDV;

@@ -77,7 +77,9 @@ public class ThongTinNV extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         txtMAQL = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanelTTNV.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("THÔNG TIN NHÂN VIÊN");
@@ -107,6 +109,7 @@ public class ThongTinNV extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel8.setText("Ngày vào làm");
 
+        btnL.setBackground(new java.awt.Color(255, 204, 204));
         btnL.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnL.setText("Chấp nhận");
         btnL.addActionListener(new java.awt.event.ActionListener() {
@@ -115,6 +118,7 @@ public class ThongTinNV extends javax.swing.JFrame {
             }
         });
 
+        btnT.setBackground(new java.awt.Color(0, 153, 153));
         btnT.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnT.setText("Thoát");
         btnT.addActionListener(new java.awt.event.ActionListener() {
@@ -149,15 +153,11 @@ public class ThongTinNV extends javax.swing.JFrame {
         jLabel11.setText("Mã quản lý");
 
         txtMAQL.setToolTipText("Mã khách hàng");
-        jPanelTTNV.setBackground(Color.WHITE);
+
         javax.swing.GroupLayout jPanelTTNVLayout = new javax.swing.GroupLayout(jPanelTTNV);
         jPanelTTNV.setLayout(jPanelTTNVLayout);
         jPanelTTNVLayout.setHorizontalGroup(
             jPanelTTNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTTNVLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(274, 274, 274))
             .addGroup(jPanelTTNVLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelTTNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -170,13 +170,11 @@ public class ThongTinNV extends javax.swing.JFrame {
                     .addGroup(jPanelTTNVLayout.createSequentialGroup()
                         .addGap(0, 5, Short.MAX_VALUE)
                         .addGroup(jPanelTTNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelTTNVLayout.createSequentialGroup()
-                                .addGap(112, 112, 112)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanelTTNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanelTTNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(59, 59, 59)
+                        .addGroup(jPanelTTNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTTNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanelTTNVLayout.createSequentialGroup()
                                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
@@ -203,26 +201,26 @@ public class ThongTinNV extends javax.swing.JFrame {
                                     .addComponent(btnL, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(46, 46, 46)
                                     .addComponent(btnT, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanelTTNVLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTTNVLayout.createSequentialGroup()
                                 .addGroup(jPanelTTNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelTTNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtMAQL, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTENNV, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(txtTENNV, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTTNVLayout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(259, 259, 259)))))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanelTTNVLayout.setVerticalGroup(
             jPanelTTNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTTNVLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanelTTNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelTTNVLayout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelTTNVLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(48, 48, 48)
                         .addGroup(jPanelTTNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -245,7 +243,10 @@ public class ThongTinNV extends javax.swing.JFrame {
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelTTNVLayout.createSequentialGroup()
                                 .addGap(9, 9, 9)
-                                .addComponent(dateNGS, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(dateNGS, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTTNVLayout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)))
                 .addGap(8, 8, 8)
                 .addGroup(jPanelTTNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)

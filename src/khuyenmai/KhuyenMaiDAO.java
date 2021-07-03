@@ -69,7 +69,7 @@ public class KhuyenMaiDAO {
     public ArrayList<KhuyenMai> queryKMThanhVienByDate(Date startDate, Date endDate) {
         ArrayList<KhuyenMai> list = new ArrayList<>();
         String sqlQuery = "SELECT * from KhuyenMai WHERE " +
-                " TO_DATE(NGAYBD,'dd/MM/yyyy') <= TO_DATE(?,'dd/MM/yyyy') AND (NGAYKT,'dd/MM/yyyy') >= TO_DATE(?,'dd/MM/yyyy') Order by MAKM";
+                " TO_DATE(NGAYBD,'dd/MM/yyyy') <= TO_DATE(?,'dd/MM/yyyy') AND TO_DATE(NGAYKT,'dd/MM/yyyy') >= TO_DATE(?,'dd/MM/yyyy') AND MOTA='thanhvien' Order by MAKM";
         try {
             PreparedStatement preparedStatementShow = this.connection.prepareStatement(sqlQuery);
             preparedStatementShow.setDate(1,new java.sql.Date(endDate.getTime()));
@@ -89,14 +89,15 @@ public class KhuyenMaiDAO {
                 list.add(new KhuyenMai(makm,tenkm,mota,tile,ngaybd,ngaykt));
 
             }
-        } catch (SQLException e) {
+        } catch (SQLException e) {            e.printStackTrace();
         }
         return list;
+
     }
     public ArrayList<KhuyenMai> queryKMThuongByDate(Date startDate, Date endDate) {
         ArrayList<KhuyenMai> list = new ArrayList<>();
-        String sqlQuery = "SELECT * from KhuyenMai WHERE MOTA = 'thuong'" +
-                "AND TO_DATE(NGAYBD,'dd/MM/yyyy') <= TO_DATE(?,'dd/MM/yyyy') AND (NGAYKT,'dd/MM/yyyy') >= TO_DATE(?,'dd/MM/yyyy') Order by MAKM";
+        String sqlQuery = "SELECT * from KhuyenMai WHERE " +
+                " TO_DATE(NGAYBD,'dd/MM/yyyy') <= TO_DATE(?,'dd/MM/yyyy') AND TO_DATE(NGAYKT,'dd/MM/yyyy') >= TO_DATE(?,'dd/MM/yyyy') AND MOTA<>'thanhvien' Order by MAKM";
         try {
             PreparedStatement preparedStatementShow = this.connection.prepareStatement(sqlQuery);
             preparedStatementShow.setDate(1,new java.sql.Date(endDate.getTime()));
@@ -117,6 +118,7 @@ public class KhuyenMaiDAO {
 
             }
         } catch (SQLException e) {
+            e.printStackTrace();
         }
         return list;
     }

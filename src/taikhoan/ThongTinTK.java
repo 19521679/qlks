@@ -59,7 +59,7 @@ public class ThongTinTK extends javax.swing.JFrame {
         btnT = new javax.swing.JButton();
         txtUSM = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanelTTTK.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -87,6 +87,7 @@ public class ThongTinTK extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel6.setText("Trạng thái");
 
+        btnL.setBackground(new java.awt.Color(255, 204, 204));
         btnL.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnL.setText("Lưu");
         btnL.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +96,7 @@ public class ThongTinTK extends javax.swing.JFrame {
             }
         });
 
+        btnT.setBackground(new java.awt.Color(0, 153, 153));
         btnT.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnT.setText("Thoát");
         btnT.addActionListener(new java.awt.event.ActionListener() {

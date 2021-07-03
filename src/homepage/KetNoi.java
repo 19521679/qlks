@@ -9,6 +9,8 @@ import Util.MyConvert;
 import database.Database;
 import taikhoan.TaiKhoanDAO;
 
+import javax.swing.*;
+
 /**
  *
  * @author khanh
@@ -20,6 +22,8 @@ public class KetNoi extends javax.swing.JFrame {
      */
     public KetNoi() {
         initComponents();
+        JRootPane rootPane = SwingUtilities.getRootPane(btnCN);
+        rootPane.setDefaultButton(btnCN);
     }
 
     /**
@@ -95,6 +99,7 @@ public class KetNoi extends javax.swing.JFrame {
             }
         });
 
+        btnCN.setBackground(new java.awt.Color(255, 204, 204));
         btnCN.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnCN.setText("Chấp nhận");
         btnCN.addActionListener(new java.awt.event.ActionListener() {

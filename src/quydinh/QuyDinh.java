@@ -28,20 +28,12 @@ public class QuyDinh extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private Image image = Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/background/background.png"));
     private void initComponents() {
 
-        jPanel6 = new JPanel(){
-
-            @Override
-            protected void paintComponent(Graphics g)
-            {
-
-                super.paintComponent(g);
-                g.drawImage(image, 0, 0, null);
-
-            }
-        };
+        jPanel6 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabelAVT2 = new javax.swing.JLabel();
         ButtonCapNhat = new javax.swing.JButton();
         ButtonLuu = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -55,10 +47,32 @@ public class QuyDinh extends javax.swing.JFrame {
         qddv = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
         qdhd = new javax.swing.JTextArea();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/poster/Quydinh.png"))); // NOI18N
+
+        jLabelAVT2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taikhoan/avatar/NV.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelAVT2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabelAVT2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         ButtonCapNhat.setBackground(new java.awt.Color(51, 204, 0));
         ButtonCapNhat.setText("Cập nhật quy định");
@@ -76,7 +90,10 @@ public class QuyDinh extends javax.swing.JFrame {
             }
         });
 
+        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
         jTabbedPane1.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
+
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
         qdnv.setColumns(20);
         qdnv.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
@@ -87,6 +104,8 @@ public class QuyDinh extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Quy định nhân viên", jScrollPane1);
 
+        jScrollPane5.setBackground(new java.awt.Color(255, 255, 255));
+
         qdkm.setColumns(20);
         qdkm.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         qdkm.setRows(5);
@@ -95,6 +114,8 @@ public class QuyDinh extends javax.swing.JFrame {
         jScrollPane5.setViewportView(qdkm);
 
         jTabbedPane1.addTab("Quy định khuyến mãi", jScrollPane5);
+
+        jScrollPane6.setBackground(new java.awt.Color(255, 255, 255));
 
         qdp.setColumns(20);
         qdp.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
@@ -105,6 +126,8 @@ public class QuyDinh extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Quy định phòng", jScrollPane6);
 
+        jScrollPane7.setBackground(new java.awt.Color(255, 255, 255));
+
         qddv.setColumns(20);
         qddv.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         qddv.setRows(5);
@@ -113,6 +136,8 @@ public class QuyDinh extends javax.swing.JFrame {
         jScrollPane7.setViewportView(qddv);
 
         jTabbedPane1.addTab("Quy định dịch vụ", jScrollPane7);
+
+        jScrollPane4.setBackground(new java.awt.Color(255, 255, 255));
 
         qdhd.setColumns(20);
         qdhd.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
@@ -123,27 +148,10 @@ public class QuyDinh extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Quy định hóa đơn", jScrollPane4);
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 28)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("QUY ĐỊNH KHÁCH SẠN ÁNH DƯƠNG");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jTabbedPane1)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(111, 111, 111)
@@ -151,11 +159,15 @@ public class QuyDinh extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ButtonLuu)
                 .addGap(171, 171, 171))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -250,8 +262,15 @@ public class QuyDinh extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonCapNhat;
     private javax.swing.JButton ButtonLuu;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabelAVT;
+    private javax.swing.JLabel jLabelAVT1;
+    private javax.swing.JLabel jLabelAVT2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane4;

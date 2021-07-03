@@ -129,6 +129,7 @@ public class ThongTinKhachHang extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel10.setText("Loại khách hàng");
 
+        btnCT.setBackground(new java.awt.Color(255, 204, 204));
         btnCT.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnCT.setText("Chấp thuận");
         btnCT.addActionListener(new java.awt.event.ActionListener() {
@@ -137,6 +138,7 @@ public class ThongTinKhachHang extends javax.swing.JFrame {
             }
         });
 
+        btnT.setBackground(new java.awt.Color(0, 204, 204));
         btnT.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnT.setText("Thoát");
         btnT.addActionListener(new java.awt.event.ActionListener() {

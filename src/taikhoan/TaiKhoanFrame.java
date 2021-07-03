@@ -19,7 +19,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- *
  * @author khanh
  */
 public class TaiKhoanFrame extends javax.swing.JFrame {
@@ -28,10 +27,10 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
      * Creates new form TaiKhoanFrame
      */
     private Thread threadTOTTTK;
-    private TaiKhoanDAO TKDAO =new TaiKhoanDAO();
-    private JButton buttonIsSelected=new JButton();
-    private ArrayList<TaiKhoan> listIsSelected =new ArrayList<>();
-    private ArrayList<TaiKhoan> listTK =new ArrayList<>();
+    private TaiKhoanDAO TKDAO = new TaiKhoanDAO();
+    private JButton buttonIsSelected = new JButton();
+    private ArrayList<TaiKhoan> listIsSelected = new ArrayList<>();
+    private ArrayList<TaiKhoan> listTK = new ArrayList<>();
 
 
     public TaiKhoanFrame() {
@@ -46,16 +45,17 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
             }
         };
         initComponents();
-        listTK=TKDAO.queryAll();
+        listTK = TKDAO.queryAll();
         reSet();
     }
-    public JPanel getPanel()
-    {
+
+    public JPanel getPanel() {
         return jPanelTK;
     }
-     private Image image = Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/background/background.png"));
-    private void reSet()
-    {
+
+    private Image image = Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/background/background.png"));
+
+    private void reSet() {
 
         jPanel8.removeAll();
         jPanel8.revalidate();
@@ -63,15 +63,14 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
         paintKM(listTK);
 
     }
-    private void paintKM(ArrayList<TaiKhoan> list)
-    {
-        for(TaiKhoan p:list)
-        {
+
+    private void paintKM(ArrayList<TaiKhoan> list) {
+        for (TaiKhoan p : list) {
             JButton btnTemp = new javax.swing.JButton();
             btnTemp.setBackground(new java.awt.Color(255, 245, 245));
             btnTemp.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
             btnTemp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/khthuong.png"))); // NOI18N
-            btnTemp.setText("   "+p.getUSERNAME()+"    |   "+p.getMANV()+"      " +p.getPASSWORD()+"      "+p.getTRANGTHAI()+"       "+p.getTGDNGN()+"         "+p.getPC());
+            btnTemp.setText("   " + p.getUSERNAME() + "    |   " + p.getMANV() + "      " + p.getPASSWORD() + "      " + p.getTRANGTHAI() + "       " + p.getTGDNGN() + "         " + p.getPC());
             btnTemp.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
             btnTemp.setIconTextGap(40);
             btnTemp.setMaximumSize(new java.awt.Dimension(115, 60));
@@ -80,18 +79,19 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
 
             btnTemp.addActionListener(e -> {
 
-                String[] words=btnTemp.getText().split("\\s");
-                String StrTemp=words[1];
+                String[] words = btnTemp.getText().split("\\s");
+                String StrTemp = words[1];
                 listIsSelected.removeAll(listIsSelected);
                 java.util.List<TaiKhoan> imcomes1 = list.stream().filter(i -> i.getUSERNAME().equals(StrTemp))
                         .collect(Collectors.toList());
                 listIsSelected.add(imcomes1.get(0));
                 lbSelected.setText(StrTemp);
-                buttonIsSelected=btnTemp;
+                buttonIsSelected = btnTemp;
                 buttonIsSelected.setBackground(new java.awt.Color(0, 204, 255));
             });
             jPanel8.add(btnTemp);
-        } if (listTK.size() < 8)
+        }
+        if (listTK.size() < 8)
             for (int i = 0; i < 8 - listTK.size(); i++) {
                 Button btnTemp = new Button();
                 btnTemp.setBackground(Color.WHITE);
@@ -114,6 +114,7 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
         jPanelTK = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
+        jLabelAVT = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabelTN = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
@@ -136,20 +137,31 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanelTK.setBackground(new java.awt.Color(255, 255, 255));
+
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(1483, 100));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/background/poster.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/poster/Taikhoan.png"))); // NOI18N
+
+        jLabelAVT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taikhoan/avatar/NV.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelAVT)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabelAVT)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -164,6 +176,7 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
             }
         });
 
+        btnSearch.setBackground(MyColor.button);
         btnSearch.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnSearch.setText("Tìm kiếm");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -210,7 +223,7 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBackground(new java.awt.Color(102, 202, 147));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Username");
@@ -266,9 +279,11 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setLayout(new java.awt.GridLayout(0, 1, 2, 3));
         jScrollPane2.setViewportView(jPanel8);
 
+        btnThem.setBackground(new java.awt.Color(0, 153, 153));
         btnThem.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnThem.setText("Thêm");
         btnThem.setActionCommand("Đạt phòng");
@@ -278,6 +293,7 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
             }
         });
 
+        btnX.setBackground(new java.awt.Color(0, 153, 153));
         btnX.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnX.setText("Xoá");
         btnX.setActionCommand("");
@@ -287,6 +303,7 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
             }
         });
 
+        btnS.setBackground(new java.awt.Color(0, 153, 153));
         btnS.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnS.setText("Sửa");
         btnS.setToolTipText("");
@@ -297,6 +314,7 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
             }
         });
 
+        btnDX.setBackground(new java.awt.Color(255, 204, 204));
         btnDX.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnDX.setText("Đăng xuất");
         btnDX.setToolTipText("");
@@ -316,11 +334,12 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
                     .addGroup(jPanelTKLayout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1056, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelTKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelTKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnS, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                             .addComponent(btnThem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnDX, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
+                            .addComponent(btnS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnDX, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+                        .addGap(0, 20, Short.MAX_VALUE))
                     .addGroup(jPanelTKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -338,12 +357,12 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelTKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelTKLayout.createSequentialGroup()
-                        .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnX, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnS, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
+                        .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnX, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnS, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
                         .addComponent(btnDX, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2)))
         );
@@ -372,7 +391,7 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-        if (txtSearch.getText().isBlank()) listTK= TKDAO.queryAll();
+        if (txtSearch.getText().isBlank()) listTK = TKDAO.queryAll();
         else {
             List<TaiKhoan> matches1 = listTK.stream().filter(it -> it.getUSERNAME().contains(txtSearch.getText())).collect(Collectors.toList());
             listTK.removeAll(listTK);
@@ -417,17 +436,17 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (listIsSelected.isEmpty())
 
-        JOptionPane.showMessageDialog(null, "Bạn chưa chọn khuyến mãi nào", "Thông tin", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Bạn chưa chọn khuyến mãi nào", "Thông tin", JOptionPane.INFORMATION_MESSAGE);
         else {
             Object[] options = {"Có", "Không"};
             int result = JOptionPane.showOptionDialog(this,
-                "Bạn có chắc muốn xoá khuyến mãi này",
-                "Xác nhận",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                options,
-                options[1]);
+                    "Bạn có chắc muốn xoá khuyến mãi này",
+                    "Xác nhận",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    options,
+                    options[1]);
 
             if (result == JOptionPane.YES_OPTION) {
                 TKDAO.delete(listIsSelected.get(0));
@@ -441,7 +460,7 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (listIsSelected.isEmpty())
 
-        JOptionPane.showMessageDialog(null, "Bạn chưa chọn khách hàng nào", "Thông tin", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Bạn chưa chọn khách hàng nào", "Thông tin", JOptionPane.INFORMATION_MESSAGE);
         else {
             ThongTinTK child = new ThongTinTK();
             child.setVisible(true);
@@ -486,7 +505,7 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -528,6 +547,7 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelAVT;
     private javax.swing.JLabel jLabelTN;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
