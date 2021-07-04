@@ -10,6 +10,7 @@ import database.Database;
 import taikhoan.TaiKhoanDAO;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -21,6 +22,7 @@ public class KetNoi extends javax.swing.JFrame {
      * Creates new form KetNoi
      */
     public KetNoi() {
+        setIconImage(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/logo.png")));
         initComponents();
         JRootPane rootPane = SwingUtilities.getRootPane(btnCN);
         rootPane.setDefaultButton(btnCN);

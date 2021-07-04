@@ -12,6 +12,7 @@ import khuyenmai.KhuyenMaiDAO;
 import khuyenmai.KhuyenMaiFrame;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class ThongTinKM extends javax.swing.JFrame {
     ArrayList<KhuyenMai> listKM = new ArrayList<>();
 
     public ThongTinKM() {
+        setIconImage(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/logo.png")));
         initComponents();
         dateNGBD.setDateFormatString("dd-MM-yyyy");
         dateNGKT.setDateFormatString("dd-MM-yyyy");

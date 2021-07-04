@@ -58,6 +58,7 @@ public class DatPhong extends javax.swing.JFrame {
     private Image image2 = Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/Sanpham.png"));
 
     public DatPhong() {
+        setIconImage(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/logo.png")));
         initComponents();
         dateTuNgay.setDateFormatString("dd-MM-yyyy");
         dateDenNgay.setDateFormatString("dd-MM-yyyy");

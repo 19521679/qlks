@@ -8,6 +8,7 @@ package khachhang;
 import Util.MyInstance;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class ThongTinKhachHang extends javax.swing.JFrame {
     KhachHangDAO KHDAO=new KhachHangDAO();
     private KhachHang khachhang;
     public ThongTinKhachHang() {
+        setIconImage(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/logo.png")));
         initComponents();
     }
 

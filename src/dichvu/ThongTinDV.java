@@ -14,6 +14,7 @@ import phong.DanhSachPhongFrame;
 import phong.Phong;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ public class ThongTinDV extends javax.swing.JFrame {
     private ArrayList<DichVu> listDV;
 
     public ThongTinDV() {
+        setIconImage(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/logo.png")));
         initComponents();
 
     }

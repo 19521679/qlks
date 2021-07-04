@@ -58,6 +58,7 @@ public class ThongTinTT extends javax.swing.JFrame {
     private Image image = Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/background/background.png"));
 
     public ThongTinTT() {
+        setIconImage(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/logo.png")));
         jPanelTTTT = new JPanel() {
 
             @Override

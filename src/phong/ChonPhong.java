@@ -50,7 +50,7 @@ public class ChonPhong extends javax.swing.JFrame {
     }
 
     public ChonPhong() {
-
+        setIconImage(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/logo.png")));
         initComponents();
         dateTuNgay.setDateFormatString("dd-MM-yyyy");
         dateDenNgay.setDateFormatString("dd-MM-yyyy");

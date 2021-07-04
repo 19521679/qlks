@@ -43,6 +43,7 @@ public class DanhSachPhongFrame extends javax.swing.JFrame {
 
 
     public DanhSachPhongFrame() {
+        setIconImage(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/logo.png")));
         initComponents();
 
         dataChange();

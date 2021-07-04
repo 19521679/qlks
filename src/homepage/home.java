@@ -23,8 +23,12 @@ import quydinh.QuyDinh;
 import taikhoan.TaiKhoanFrame;
 import thongke.ThongKeFrame;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * @author HP
@@ -43,6 +47,9 @@ public class home extends javax.swing.JFrame {
         return nhanvien;
     }
     public home() {
+
+        setIconImage(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/logo.png")));
+
         addWindowListener(new WindowAdapter()
         {
             @Override

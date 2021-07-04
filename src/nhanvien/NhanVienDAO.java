@@ -3,6 +3,7 @@ package nhanvien;
 import database.Database;
 import dichvu.DichVu;
 import hoadon.HoaDon;
+import khachhang.KhachHang;
 
 
 import javax.swing.*;
@@ -10,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
@@ -155,12 +157,62 @@ public class NhanVienDAO {
 
     public ArrayList<NhanVien> queryByNV(NhanVien nv) {
 
-
+        boolean preNode = false;
         ArrayList<NhanVien> list = new ArrayList<>();
-        String sqlQuery = "SELECT * from NHANVIEN WHERE MANV =?";
+        String sqlQuery =
+                "SELECT * from NHANVIEN " +
+                        "where ";
+
+        if (nv.getMANV() != null && !nv.getMANV().isEmpty()) {
+            sqlQuery += "MANV LIKE ('%'||'" + nv.getMANV() + "'||'%') ";
+            preNode = true;
+        }
+        if (nv.getMAQL() != null && !nv.getMAQL().isEmpty()) {
+            if (preNode == true) sqlQuery += " AND ";
+            sqlQuery += " MAQL LIKE ('%'||'" + nv.getMAQL() + "'||'%') ";
+            preNode = true;
+        }
+        if (nv.getHOTEN() != null && !nv.getHOTEN() .isEmpty()) {
+            if (preNode == true) sqlQuery += " AND ";
+            sqlQuery += " HOTEN LIKE ('%'||'" + nv.getHOTEN() + "'||'%') ";
+            preNode = true;
+        }
+        if (nv.getGIOITINH() != null && !nv.getGIOITINH().isEmpty()) {
+            if (preNode == true) sqlQuery += " AND ";
+            sqlQuery += " GIOITINH LIKE ('%'||'" + nv.getGIOITINH() + "'||'%') ";
+            preNode = true;
+        }
+        if (nv.getDCHI() != null && !nv.getDCHI().isEmpty()) {
+            if (preNode == true) sqlQuery += " AND ";
+            sqlQuery += " DCHI LIKE ('%'||'" + nv.getDCHI() + "'||'%') ";
+            preNode = true;
+        }
+
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        if (nv.getNGSINH() != null) {
+            if (preNode == true) sqlQuery += " AND ";
+            sqlQuery += " NGSINH = TO_DATE('" + format.format(nv.getNGSINH()) + "','dd/MM/yyyy') ";
+            preNode = true;
+        }
+        if (nv.getNGVL() != null) {
+            if (preNode == true) sqlQuery += " AND ";
+            sqlQuery += " NGVL = TO_DATE('" + format.format(nv.getNGVL()) + "','dd/MM/yyyy') ";
+            preNode = true;
+        }
+        if (nv.getSODT() != null && !nv.getSODT().isEmpty()) {
+            if (preNode == true) sqlQuery += " AND ";
+            sqlQuery += " SODT LIKE ('%'||'" + nv.getSODT() + "'||'%') ";
+            preNode = true;
+        }
+        if (nv.getLUONG()!=null) {
+            if (preNode == true) sqlQuery += " AND ";
+            sqlQuery += " LUONG = " + nv.getLUONG() + " ";
+            preNode = true;
+        }
+
+        sqlQuery += " ORDER BY MANV";
         try {
             PreparedStatement preparedStatementShow = this.connection.prepareStatement(sqlQuery);
-            preparedStatementShow.setString(1, nv.getMANV());
             ResultSet rs = preparedStatementShow.executeQuery();
 
             while (rs.next()) {
@@ -179,7 +231,6 @@ public class NhanVienDAO {
             }
         } catch (SQLException e) {
         }
-
         return list;
 
     }

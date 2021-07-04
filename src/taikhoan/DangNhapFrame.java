@@ -9,6 +9,7 @@ import database.Database;
 import homepage.KetNoi;
 import nhanvien.NhanVien;
 
+import java.awt.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,6 +31,7 @@ public class DangNhapFrame extends javax.swing.JFrame {
     private Thread threadNhan;
 
     public DangNhapFrame() {
+        setIconImage(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/logo.png")));
         initComponents();
         JRootPane rootPane = SwingUtilities.getRootPane(ButtonDN);
         rootPane.setDefaultButton(ButtonDN);

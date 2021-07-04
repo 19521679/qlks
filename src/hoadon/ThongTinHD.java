@@ -55,6 +55,7 @@ public class ThongTinHD extends javax.swing.JFrame {
     private Image image = Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/background/background.png"));
 
     public ThongTinHD() {
+        setIconImage(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/logo.png")));
         jPanelTTHD = new JPanel() {
 
             @Override

@@ -8,6 +8,7 @@ package taikhoan;
 import Util.MyInstance;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -20,6 +21,7 @@ public class ThongTinTK extends javax.swing.JFrame {
     TaiKhoanDAO tkDAO = new TaiKhoanDAO();
     TaiKhoan tk;
     public ThongTinTK() {
+        setIconImage(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/logo.png")));
         initComponents();
 
     }

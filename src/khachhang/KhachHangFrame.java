@@ -159,7 +159,6 @@ public class KhachHangFrame extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabelAVT = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
         jLabelTN = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();

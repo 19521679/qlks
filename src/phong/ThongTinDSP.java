@@ -9,6 +9,7 @@ import Util.MyConvert;
 import Util.MyInstance;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class ThongTinDSP extends javax.swing.JFrame {
     private ArrayList<Phong> listPhong = new ArrayList<>();
 
     public ThongTinDSP() {
+        setIconImage(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/logo.png")));
         initComponents();
         txtDG.setEnabled(false);
         txtSN.setEnabled(false);

@@ -13,6 +13,7 @@ import khachhang.KhachHang;
 import phong.Phong;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -41,6 +42,7 @@ public class ChonDichVu extends javax.swing.JFrame {
     }
 
     public ChonDichVu() {
+        setIconImage(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/logo.png")));
         listDv = DVDAO.queryAllDichVu();
         initComponents();
         dateTuNgay.setDateFormatString("dd-MM-yyyy");
