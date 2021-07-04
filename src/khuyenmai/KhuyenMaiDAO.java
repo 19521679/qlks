@@ -95,9 +95,7 @@ public class KhuyenMaiDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("lm tìm:"+list.toString());
-        System.out.println("ngabd:"+startDate.toString());
-        System.out.println("ngaykt:"+endDate.toString());
+
         return list;
 
     }
@@ -128,9 +126,6 @@ public class KhuyenMaiDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("lm tìm:"+list.toString());
-        System.out.println("ngabd:"+startDate.toString());
-        System.out.println("ngaykt:"+endDate.toString());
         return list;
     }
 
@@ -254,7 +249,7 @@ public class KhuyenMaiDAO {
                         "where ";
 
         if (km.getMAKM() != null && !km.getMAKM().isEmpty()) {
-            sqlQuery += "MAKM LIKE ('%'||'" + String.valueOf(km.getMAKM()) + "'||'%') ";
+            sqlQuery += "MAKM LIKE ('%'||'" + km.getMAKM() + "'||'%') ";
             preNode = true;
         }
         if (km.getTENKM() != null && !km.getTENKM().isEmpty()) {
@@ -297,11 +292,11 @@ public class KhuyenMaiDAO {
                 Float tile = rs.getFloat("TILE");
                 Date ngaybd = rs.getDate("NGAYBD");
                 Date ngaykt = rs.getDate("NGAYKT");
-
                 list.add(new KhuyenMai(makm, tenkm, mota, tile, ngaybd, ngaykt));
             }
         } catch (SQLException e) {
         }
+        System.out.println("list tim duoc:"+list);
 
 
         return list;

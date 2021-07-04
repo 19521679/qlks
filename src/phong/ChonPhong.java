@@ -429,6 +429,7 @@ public class ChonPhong extends javax.swing.JFrame {
 
     private void btnFullActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFullActionPerformed
         // TODO add your handling code here:
+        if (dateTuNgay.getDate()==null && dateDenNgay.getDate()==null) return;
         if (valuebtn !=1) {
             listAllPhong = listPhongFull;
             valuebtn = 1;
@@ -441,6 +442,7 @@ public class ChonPhong extends javax.swing.JFrame {
 
     private void btnDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonActionPerformed
         // TODO add your handling code here:
+        if (dateTuNgay.getDate()==null && dateDenNgay.getDate()==null) return;
         if (valuebtn !=2) {
             listAllPhong = listPhongDon;
             valuebtn = 2;
@@ -454,6 +456,7 @@ public class ChonPhong extends javax.swing.JFrame {
 
     private void btnDoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoiActionPerformed
         // TODO add your handling code here:
+        if (dateTuNgay.getDate()==null && dateDenNgay.getDate()==null) return;
         if (valuebtn !=3) {
             listAllPhong = listPhongDoi;
             valuebtn = 3;
@@ -467,6 +470,7 @@ public class ChonPhong extends javax.swing.JFrame {
 
     private void btnVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVIPActionPerformed
         // TODO add your handling code here:
+        if (dateTuNgay.getDate()==null && dateDenNgay.getDate()==null) return;
         if (valuebtn !=4) {
             listAllPhong = listPhongVIP;
             valuebtn = 4;

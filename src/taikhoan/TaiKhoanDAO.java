@@ -27,7 +27,6 @@ public class TaiKhoanDAO {
     private static Connection connection = Database.getConnection();
     private static TaiKhoan taikhoan;
     private static NhanVien nhanvien;
-    private static String PC;
 
 
     public static TaiKhoan getTaiKhoan() {
@@ -35,19 +34,16 @@ public class TaiKhoanDAO {
     }
 
 
-    public static boolean tuDongDangNhap(String pc) {
+    public static boolean tuDongDangNhap() {
         TaiKhoan tk = new TaiKhoan();
         Date nght = new Date(System.currentTimeMillis());
-        PC=pc;
-
-
 
         try {
 
             String query = "SELECT * FROM TAIKHOAN WHERE PC = ? order by TGDNGN";
             PreparedStatement ps = connection.prepareStatement(query);
 
-            ps.setString(1, pc);
+            ps.setString(1, Database.getPC());
 
             ResultSet rs = ps.executeQuery();
             if (rs.next() == false) return false;
@@ -68,7 +64,7 @@ public class TaiKhoanDAO {
                     taikhoan.setPASSWORD(rs.getString("PASSWORD"));
                     taikhoan.setTGDNGN(rs.getDate("TGDNGN"));
                     taikhoan.setTRANGTHAI(rs.getString("TRANGTHAI"));
-                    taikhoan.setPC(pc);
+                    taikhoan.setPC(Database.getPC());
                     setDangNhap();
                     return true;
                 }
@@ -170,12 +166,11 @@ public class TaiKhoanDAO {
             PreparedStatement ps = connection.prepareStatement(query);
 
             ps.setDate(1, new java.sql.Date(System.currentTimeMillis()));
-            ps.setString(2, taikhoan.getPC());
+            ps.setString(2, Database.getPC());
             ps.setString(3, taikhoan.getUSERNAME());
 
             ps.executeUpdate();
             nhanvien = queryNVbyTK(taikhoan);
-
 
 
         } catch (SQLException ex) {

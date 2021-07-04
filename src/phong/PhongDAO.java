@@ -5,9 +5,11 @@ import database.Database;
 import dichvu.DichVu;
 import hoadon.HoaDon;
 import khachhang.KhachHang;
+import khuyenmai.KhuyenMai;
 
 import javax.swing.*;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -359,6 +361,54 @@ public class PhongDAO {
             }
         }
         return true;
+    }
+
+    public ArrayList<Phong> queryByP(Phong p) {
+
+
+        boolean preNode = false;
+        ArrayList<Phong> list = new ArrayList<>();
+        String sqlQuery =
+                "SELECT * from PHONG " +
+                        "where ";
+
+        if (p.getMAPH() != null && !p.getMAPH().isEmpty()) {
+            sqlQuery += "MAPH LIKE ('%'||'" + p.getMAPH() + "'||'%') ";
+            preNode = true;
+        }
+        if (p.getMALOAIPH() != null && !p.getMALOAIPH().isEmpty()) {
+            if (preNode == true) sqlQuery += " AND ";
+            sqlQuery += " MALOAIPH LIKE ('%'||'" + p.getMALOAIPH() + "'||'%') ";
+            preNode = true;
+        }
+        if (p.getTINHTRANG() != null && !p.getTINHTRANG().isEmpty()) {
+            if (preNode == true) sqlQuery += " AND ";
+            sqlQuery += " TINHTRANG LIKE ('%'||'" + p.getTINHTRANG() + "'||'%') ";
+            preNode = true;
+        }
+        if (p.getGHICHU() != null && !p.getGHICHU().isEmpty()) {
+            if (preNode == true) sqlQuery += " AND ";
+            sqlQuery += " GHICHU LIKE ('%'||'" + p.getGHICHU() + "'||'%') ";
+            preNode = true;
+        }
+        sqlQuery += " ORDER BY MAPH";
+
+        try {
+            PreparedStatement preparedStatementShow = this.connection.prepareStatement(sqlQuery);
+
+            ResultSet rs = preparedStatementShow.executeQuery();
+            while (rs.next()) {
+                String maph = rs.getString("MAPH");
+                String maloaiph = rs.getString("MALOAIPH");
+                String tinhtrang = rs.getString("TINHTRANG");
+                String ghichu = rs.getString("GHICHU");
+                list.add(new Phong(maph, maloaiph, tinhtrang, ghichu));
+
+            }
+        } catch (SQLException e) {
+        }
+
+        return list;
     }
 
 

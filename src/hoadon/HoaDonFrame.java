@@ -95,7 +95,7 @@ public class HoaDonFrame extends javax.swing.JFrame {
     public void dataChange() {
 
         listhd = HDDAO.queryHDByNgay(dateTN.getDate(), dateDN.getDate());
-        System.out.println("hoadon:"+listhd);
+
         listThanhToan = HDDAO.queryHDDTTByNgay(dateTN.getDate(), dateDN.getDate());
         listChuaThanhToan = HDDAO.queryHDCTTByNgay(dateTN.getDate(), dateDN.getDate());
         reset();

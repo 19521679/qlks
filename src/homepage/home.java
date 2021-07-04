@@ -32,11 +32,28 @@ import java.awt.event.WindowEvent;
 public class home extends javax.swing.JFrame {
     public static NhanVien nhanvien=new NhanVien();
 
-    String PC;
 
-    public void setPC(String pc) {
-        this.PC = pc;
-        if (TaiKhoanDAO.tuDongDangNhap(PC)==false) {
+    /**
+     * Creates new form home
+     */
+    Thread threadGui;
+    public static NhanVien getNhanVien()
+    {
+        System.out.println("nhanvien:"+nhanvien.toString());
+        return nhanvien;
+    }
+    public home() {
+        addWindowListener(new WindowAdapter()
+        {
+            @Override
+            public void windowClosing(WindowEvent e)
+            {
+                System.out.println("Closed");
+                TaiKhoanDAO.setThoat();
+            }
+        });
+
+        if (TaiKhoanDAO.tuDongDangNhap()==false) {
             System.out.println("KOtudongdangnhap");
             DangNhapFrame child = new DangNhapFrame();
             child.setVisible(true);
@@ -60,7 +77,6 @@ public class home extends javax.swing.JFrame {
             };
 
             threadGui = new Thread(runnable);
-            child.setPC(PC);
             child.setThread(threadGui);
 
             //từ đây trở lên là trước khi luồng chính bị đóng
@@ -72,28 +88,6 @@ public class home extends javax.swing.JFrame {
             init();
 
         }
-    }
-
-
-    /**
-     * Creates new form home
-     */
-    Thread threadGui;
-    public static NhanVien getNhanVien()
-    {
-        System.out.println("nhanvien:"+nhanvien.toString());
-        return nhanvien;
-    }
-    public home() {
-        addWindowListener(new WindowAdapter()
-        {
-            @Override
-            public void windowClosing(WindowEvent e)
-            {
-                System.out.println("Closed");
-                TaiKhoanDAO.setThoat();
-            }
-        });
 
     }
 

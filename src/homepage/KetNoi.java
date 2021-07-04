@@ -225,11 +225,12 @@ public class KetNoi extends javax.swing.JFrame {
         Database.setPort(MyConvert.parseStringToInt(txtPort.getText()));
         Database.setUsername(txtUSN.getText());
         Database.setPassword(txtPW.getText());
-        Database.setPC(txtPC.getText());
+
         Database.getConnection();
         if (Database.is_connected())
         {
             PC=txtPC.getText();
+            Database.setPC(PC);
             start();
             dispose();
         }
@@ -240,7 +241,6 @@ public class KetNoi extends javax.swing.JFrame {
     private static void start()
     {
         home = new home();
-        home.setPC(PC);
     }
     public static void logout()
     {

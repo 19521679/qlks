@@ -11,6 +11,7 @@ import Util.MyInstance;
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 
 /**
  * @author khanh
@@ -26,6 +27,7 @@ public class ThongTinDSP extends javax.swing.JFrame {
     private DanhSachPhong dsp= new DanhSachPhong();
     private Phong p= new Phong();
     private PhongDAO PDAO = new PhongDAO();
+    private ArrayList<Phong> listPhong = new ArrayList<>();
 
     public ThongTinDSP() {
         initComponents();
@@ -269,7 +271,10 @@ public class ThongTinDSP extends javax.swing.JFrame {
         p.setGHICHU(txtGC.getText());
 
     }
-
+public ArrayList<Phong> getListPhong()
+{
+    return listPhong;
+}
     private void paint() {
         String tempStr = dsp.getTENLOAIPH();
         Integer tempIndex = 0;
@@ -307,22 +312,22 @@ public class ThongTinDSP extends javax.swing.JFrame {
         creat();
 
         switch (isInstance) {
-            case 1: {
+            case MyInstance.IS_ADD: {
                 PDAO.insert(p);
 
             }
             break;
-            case 3: {
+            case MyInstance.IS_REMOVE: {
                 PDAO.delete(p);
             }
             break;
-            case 2: {
+            case MyInstance.IS_EDIT: {
 
                 PDAO.update(p);
             }
             break;
-            case 4: {
-                DSPDAO.find(dsp);
+            case MyInstance.IS_FIND: {
+                listPhong=PDAO.queryByP(p);
             }
             break;
 

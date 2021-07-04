@@ -556,17 +556,14 @@ listTDVIsSelected.removeAll(listTDVIsSelected);
 
     private void btnKMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKMActionPerformed
         // TODO add your handling code here:
-        Object[] options = {"Chọn lại", "Xoá"};
+        Object[] options = {"Chọn lại", "Xoá", "Thoát"};
         if (khuyenmai != null) {
             int result = JOptionPane.showOptionDialog(this,
                     "Bạn có muốn chọn lại hay xoá chọn khuyến mãi này?",
                     "Chi tiết",
-                    JOptionPane.YES_NO_OPTION,
-                    JOptionPane.QUESTION_MESSAGE,
-                    null,
-                    options,
-                    options[0]);
-
+                    JOptionPane.YES_NO_CANCEL_OPTION,
+                    JOptionPane.QUESTION_MESSAGE, null, options,options[2]);
+            if(result==JOptionPane.CANCEL_OPTION) return;
             if (result == JOptionPane.NO_OPTION) {
                 Object[] options2 = {"Xoá", "Không"};
                 int result2 = JOptionPane.showOptionDialog(this,
@@ -576,7 +573,7 @@ listTDVIsSelected.removeAll(listTDVIsSelected);
                         JOptionPane.QUESTION_MESSAGE,
                         null,
                         options2,
-                        options2[0]);
+                        options2[1]);
                 if(result2==JOptionPane.YES_OPTION) {
 
                     HDDAO.deleteKM(hoadon);
@@ -614,10 +611,9 @@ listTDVIsSelected.removeAll(listTDVIsSelected);
                 .stream()
                 .mapToLong(v -> v.getNGBD().getTime())
                 .min().orElseThrow(NoSuchElementException::new));
-
         Date endDate = new Date(listTPh
                 .stream()
-                .mapToLong(v -> v.getNGBD().getTime())
+                .mapToLong(v -> v.getNGKT().getTime())
                 .max().orElseThrow(NoSuchElementException::new));
         child.setThreadNhan(threadGui, khachhang, startDate, endDate);
 
