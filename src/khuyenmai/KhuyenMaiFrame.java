@@ -12,6 +12,7 @@ import dichvu.DichVuDAO;
 import hoadon.HoaDon;
 import khachhang.KhachHang;
 import khachhang.KhachHangDAO;
+import khachhang.ThongTinKhachHang;
 import khuyenmai.KhuyenMai;
 import khuyenmai.KhuyenMaiDAO;
 import khuyenmai.ThongTinKM;
@@ -84,13 +85,14 @@ public class KhuyenMaiFrame extends javax.swing.JFrame {
 
     private void dateChange() {
         listKM = KMDAO.queryAllkm();
+        listIsSelected.removeAll(listIsSelected);
         listThanhVien = KMDAO.queryKMThanhVien();
         listThuong = KMDAO.queryKMThuong();
         reset();
     }
 
     private void reset() {
-
+        listIsSelected.removeAll(listIsSelected);
         jPanel8.removeAll();
         jPanel8.repaint();
         listIsSelected.removeAll(listIsSelected);
@@ -513,6 +515,7 @@ public class KhuyenMaiFrame extends javax.swing.JFrame {
         btnSearch.setVisible(false);
         if (kh.getLOAIKH() != null && kh.getLOAIKH().equals("thanhvien")) {
             listKM = KMDAO.queryKMThanhVienByDate(startDate, endDate);
+            listKM.addAll(KMDAO.queryKMThuongByDate(startDate, endDate));
         } else listKM = KMDAO.queryKMThuongByDate(startDate, endDate);
 
         reset();
@@ -535,9 +538,20 @@ public class KhuyenMaiFrame extends javax.swing.JFrame {
                     options[1]);
 
             if (result == JOptionPane.YES_OPTION) {
-                KMDAO.remove(listIsSelected.get(0));
-                listIsSelected.removeAll(listIsSelected);
-                dateChange();
+                String mess = KMDAO.remove(listIsSelected.get(0));
+                Object[] options2 = {"Chấp nhận"};
+                int result2 = JOptionPane.showOptionDialog(this,
+                        mess,
+                        "Thông báo",
+                        JOptionPane.OK_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        options2,
+                        options2[0]);
+                if (mess.contains("Thành công")) {
+
+                    dateChange();
+                }
             }
         }
 
@@ -618,6 +632,37 @@ public class KhuyenMaiFrame extends javax.swing.JFrame {
 
     private void btnTKNCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTKNCActionPerformed
         // TODO add your handling code here:
+        ThongTinKM child = new ThongTinKM();
+        child.setVisible(true);
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                {
+                    synchronized (threadGui) {
+                        // Pause
+                        try { //code sau khi mở lại luồng chính
+                            threadGui.wait();
+                            ArrayList<KhuyenMai> listFound = child.getListKM();
+
+                            listKM.removeAll(listKM);
+                            listKM.addAll(listFound);
+
+                            reset();
+                        } catch (InterruptedException e) {
+                        }
+                    }
+
+                }
+            }
+
+
+        };
+
+        threadGui = new Thread(runnable);
+        child.setTimKiemNC(threadGui);
+
+        //từ đây trở lên là trước khi luồng chính bị đóng
+        threadGui.start();
     }//GEN-LAST:event_btnTKNCActionPerformed
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
@@ -626,13 +671,15 @@ public class KhuyenMaiFrame extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-        if (txtSearch.getText().isBlank()) listKM = KMDAO.queryAllkm();
+        if (txtSearch.getText().isBlank()) dateChange();
         else {
-            List<KhuyenMai> matches1 = listKM.stream().filter(it -> it.getMAKM().contains(txtSearch.getText())).collect(Collectors.toList());
             listKM.removeAll(listKM);
-            listKM.addAll(matches1);
+            KhuyenMai temp = new KhuyenMai();
+            temp.setMAKM(txtSearch.getText());
+            listKM = KMDAO.queryByKM(temp);
+            reset();
         }
-        dateChange();
+
 
     }//GEN-LAST:event_btnSearchActionPerformed
 

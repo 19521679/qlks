@@ -61,25 +61,33 @@ public class ChonDichVu extends javax.swing.JFrame {
         //System.out.println( list.toString());
         for (DichVu p : listDv) {
             JButton btnPhongTemp = new javax.swing.JButton();
-            btnPhongTemp.setBackground(new java.awt.Color(204, 204, 255));
-            btnPhongTemp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/bed_icon.png"))); // NOI18N
-            btnPhongTemp.setText(p.getMADV());
+            btnPhongTemp.setBackground(new java.awt.Color(255, 192, 203));
+            btnPhongTemp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/icondv.png"))); // NOI18N
+            btnPhongTemp.setText("<html>"+p.getMADV()+"<br>"+p.getTENDV()+"<br>"+p.getGIADV()+"</html>");
             btnPhongTemp.setHideActionText(true);
+            btnPhongTemp.setFont(new java.awt.Font("Tahoma", 0, 16));
             btnPhongTemp.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
             btnPhongTemp.setPreferredSize(new java.awt.Dimension(200, 120));
 
 
             btnPhongTemp.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    List<DichVu> imcomes1 = listDv.stream().filter(i -> i.getMADV().equals(btnPhongTemp.getText()))
+                    String[] words = btnPhongTemp.getText().split("\\s");
+
+                    String StrTemp = words[0];
+                    String[] words2 = StrTemp.split("<html>");
+                    String StrTemp2 = words2[1];
+                    String[] words3 = StrTemp2.split("<br>");
+                    String StrTemp3 = words3[0];
+                    List<DichVu> imcomes1 = listDv.stream().filter(i -> i.getMADV().equals(StrTemp3))
                             .collect(Collectors.toList());
-                    List<DichVu> imcomes2 = listIsSelected.stream().filter(i -> i.getMADV().equals(btnPhongTemp.getText()))
+                    List<DichVu> imcomes2 = listIsSelected.stream().filter(i -> i.getMADV().equals(StrTemp3))
                             .collect(Collectors.toList());
                     if (imcomes2.isEmpty()) {
                         btnPhongTemp.setBackground(new java.awt.Color(0, 204, 255));
                         listIsSelected.add(imcomes1.get(0));
                     } else {
-                        btnPhongTemp.setBackground(new java.awt.Color(204, 204, 255));
+                        btnPhongTemp.setBackground(new java.awt.Color(255, 192, 203));
                         listIsSelected.remove(imcomes1.get(0));
                     }
 

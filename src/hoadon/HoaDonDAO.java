@@ -226,7 +226,6 @@ public class HoaDonDAO {
         try {
             cstmt = connection.prepareCall("{CALL PROC_DELETE_HOADON(?)}");
 
-
             cstmt.setString(1, hd.getSOHD());
 
             cstmt.executeQuery();
@@ -261,25 +260,24 @@ public class HoaDonDAO {
 
     public String deleteKM(HoaDon hd) {
 
-        CallableStatement cstmt = null;
         try {
-            cstmt = connection.prepareCall("{CALL PROC_DELETE_KHUYENMAI(?)}");
 
+            String query = "UPDATE HOADON SET MAKM =? WHERE SOHD= ? ";
 
-            cstmt.setString(1, hd.getSOHD());
-            cstmt.executeQuery();
+            PreparedStatement ps = connection.prepareStatement(query);
 
+            ps.setString(1, null);
+            ps.setString(2, hd.getSOHD());
+
+           ps.executeUpdate() ;
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
 
             String[] words1 = throwables.toString().split("ORA");
             String StrTemp1 = words1[1];
-            String[] words2 = StrTemp1.split("ORA");
-            String StrTemp2 = words2[0];
-            return StrTemp2;
+            return StrTemp1;
         }
-
         return "Thành công";
 
 

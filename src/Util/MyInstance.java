@@ -1,9 +1,9 @@
 package Util;
 
 public class MyInstance {
-    public final static Integer IS_ADD=1;
-    public final static Integer IS_EDIT=2;
-    public final static Integer IS_REMOVE=3;
-    public final static Integer IS_FIND=4;
+    public final static int IS_ADD=1;
+    public final static int IS_EDIT=2;
+    public final static int IS_REMOVE=3;
+    public final static int IS_FIND=4;
 
 }

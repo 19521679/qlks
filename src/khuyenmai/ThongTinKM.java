@@ -14,6 +14,7 @@ import khuyenmai.KhuyenMaiFrame;
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 
 /**
  *
@@ -28,6 +29,7 @@ public class ThongTinKM extends javax.swing.JFrame {
     private Thread threadNhan;
     KhuyenMaiDAO kmDAO = new KhuyenMaiDAO();
     KhuyenMai km;
+    ArrayList<KhuyenMai> listKM = new ArrayList<>();
     public ThongTinKM() {
         initComponents();
         dateNGBD.setDateFormatString("dd-MM-yyyy");
@@ -267,23 +269,21 @@ public class ThongTinKM extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Bạn chưa nhập Mã khuyến mãi", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
         else {
             switch (isInstance) {
-                case 1: {
+                case MyInstance.IS_ADD: {
                     creatkm();
                     kmDAO.insert(km);
                 }
                 break;
-                case 2: {
-                    kmDAO.remove(km);
-                }
-                break;
-                case 3: {
+                case MyInstance.IS_EDIT: {
                     creatkm();
                     kmDAO.update(km);
                 }
                 break;
-                case 4: {
+
+
+                case MyInstance.IS_FIND: {
                     creatkm();
-                    kmDAO.find(km);
+                    listKM=kmDAO.queryByKM(km);
                 }
                 break;
 
@@ -296,6 +296,10 @@ public class ThongTinKM extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnLActionPerformed
+    public ArrayList<KhuyenMai> getListKM()
+    {
+        return listKM;
+    }
 
 
     public void setThem(Thread a) {

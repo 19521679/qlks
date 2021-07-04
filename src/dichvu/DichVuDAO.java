@@ -70,9 +70,9 @@ public class DichVuDAO {
             }
 
     }
-    public boolean deleteTDV(ArrayList<ThueDichVu> listtdv) {
+    public String deleteTDV(ArrayList<ThueDichVu> listtdv) {
 
-        System.out.println("xoa");
+
         PreparedStatement ps = null;
 
         CallableStatement cstmt = null;
@@ -84,10 +84,10 @@ public class DichVuDAO {
                 cstmt.executeQuery();
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
-                return false;
+                if (throwables.toString().contains("ORC")) return "Lỗi xảy ra";
             }
         }
-        return true;
+        return "Thành công";
 
     }
 

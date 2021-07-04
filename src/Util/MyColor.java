@@ -5,7 +5,7 @@ import java.awt.*;
 public class MyColor {
     public static Color colorVIP = new Color(248, 245, 241);
     public static Color colorDon = new Color(169, 218, 173);
-    public static Color colorDoi = new Color(255, 182, 182);
+    public static Color colorDoi = new Color(215, 24, 183, 255);
     public static Color colorFull = new Color(42, 171, 225);
     public static Color colorThanhVien = new Color(255, 216, 156);
     public static Color colorThuong = new Color(145, 191, 191);

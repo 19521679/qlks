@@ -27,6 +27,7 @@ public class TaiKhoanDAO {
     private static Connection connection = Database.getConnection();
     private static TaiKhoan taikhoan;
     private static NhanVien nhanvien;
+    private static String PC;
 
 
     public static TaiKhoan getTaiKhoan() {
@@ -37,6 +38,8 @@ public class TaiKhoanDAO {
     public static boolean tuDongDangNhap(String pc) {
         TaiKhoan tk = new TaiKhoan();
         Date nght = new Date(System.currentTimeMillis());
+        PC=pc;
+
 
 
         try {

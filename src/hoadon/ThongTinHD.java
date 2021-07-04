@@ -78,6 +78,7 @@ public class ThongTinHD extends javax.swing.JFrame {
     }
 
     private void resetP() {
+        listTPIsSelected.removeAll(listTPIsSelected);
         jPanelP.removeAll();
         jPanelP.repaint();
         paintp();
@@ -85,7 +86,7 @@ public class ThongTinHD extends javax.swing.JFrame {
     }
 
     private void resetDV() {
-
+listTDVIsSelected.removeAll(listTDVIsSelected);
         jPanelDV.removeAll();
         jPanelDV.repaint();
         paintdv();
@@ -102,8 +103,8 @@ public class ThongTinHD extends javax.swing.JFrame {
             JButton btnTemp = new javax.swing.JButton();
             btnTemp.setBackground(new java.awt.Color(255, 245, 245));
             btnTemp.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-            btnTemp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/khthuong.png"))); // NOI18N
-            btnTemp.setText("MAPH: " + p.getMAPH() + "   | Số người thuê: " + p.getSONGUOITHUE() + "  | ĐƠn giá: " + (new DanhSachPhongDAO().queryDSPbyTP(p)).getDONGIA() + "   | Số ngày thuê:  " + PDAO.querySoNgayThueByTP(p) + "  | Tiền phòng: " + p.getTIEN());
+            btnTemp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/thuephong.png"))); // NOI18N
+            btnTemp.setText("MAPH: " + p.getMAPH() + "   | Số người thuê: " + p.getSONGUOITHUE() + "  | Đơn giá: " + (new DanhSachPhongDAO().queryDSPbyTP(p)).getDONGIA() + "   | Số ngày thuê:  " + PDAO.querySoNgayThueByTP(p) + "  | Tiền phòng: " + p.getTIEN() +"   phụ thu:"+p.getPHUTHU());
             btnTemp.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
             btnTemp.setIconTextGap(40);
             btnTemp.setMaximumSize(new java.awt.Dimension(115, 60));
@@ -141,8 +142,8 @@ public class ThongTinHD extends javax.swing.JFrame {
             JButton btnTemp = new javax.swing.JButton();
             btnTemp.setBackground(new java.awt.Color(255, 245, 245));
             btnTemp.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-            btnTemp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/khthuong.png"))); // NOI18N
-            btnTemp.setText("MADV: " + p.getMADV() + "  | Tên dịch vụ: " + DVDAO.queryDVByTDV(p).getTENDV() + "  | ĐƠn giá: " + DVDAO.queryDVByTDV(p).getGIADV() + "   | Số ngày thuê:  " + DVDAO.soNgayThueDVbyTDV(p) + "  | Tiền dịch vụ: " + p.getTIEN());
+            btnTemp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/dichvu.png"))); // NOI18N
+            btnTemp.setText("MADV: " + p.getMADV() + "  | Tên dịch vụ: " + DVDAO.queryDVByTDV(p).getTENDV() + "  | Đơn giá: " + DVDAO.queryDVByTDV(p).getGIADV() + "   | Số ngày thuê:  " + DVDAO.soNgayThueDVbyTDV(p) + "  | Tiền dịch vụ: " + p.getTIEN());
             btnTemp.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
             btnTemp.setIconTextGap(40);
             btnTemp.setMaximumSize(new java.awt.Dimension(115, 60));
@@ -234,11 +235,9 @@ public class ThongTinHD extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabelAVT, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addComponent(jLabelAVT))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -327,8 +326,8 @@ public class ThongTinHD extends javax.swing.JFrame {
         jPanelDV.setLayout(new java.awt.GridLayout(0, 1, 2, 3));
         jScrollPane3.setViewportView(jPanelDV);
 
+        btnTP.setBackground(MyColor.button);
         btnTP.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        btnTP.setForeground(MyColor.button);
         btnTP.setText("Thêm phòng");
         btnTP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -336,8 +335,8 @@ public class ThongTinHD extends javax.swing.JFrame {
             }
         });
 
+        btnTDV.setBackground(MyColor.button);
         btnTDV.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        btnTDV.setForeground(MyColor.button);
         btnTDV.setText("Thêm dịch vụ");
         btnTDV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -345,8 +344,8 @@ public class ThongTinHD extends javax.swing.JFrame {
             }
         });
 
+        btnXDP.setBackground(MyColor.button);
         btnXDP.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        btnXDP.setForeground(MyColor.button);
         btnXDP.setText("Xoá đặt phòng");
         btnXDP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -354,8 +353,8 @@ public class ThongTinHD extends javax.swing.JFrame {
             }
         });
 
+        btnXDDV.setBackground(MyColor.button);
         btnXDDV.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        btnXDDV.setForeground(MyColor.button);
         btnXDDV.setText("Xoá đặt dịch vụ");
         btnXDDV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -569,13 +568,23 @@ public class ThongTinHD extends javax.swing.JFrame {
                     options[0]);
 
             if (result == JOptionPane.NO_OPTION) {
-                khuyenmai = null;
-                btnKM.setText("");
-                HDDAO.deleteKM(hoadon);
+                Object[] options2 = {"Xoá", "Không"};
+                int result2 = JOptionPane.showOptionDialog(this,
+                        "Bạn có chắc chắn muốn xoá khuyến mãi này?",
+                        "Chi tiết",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        options2,
+                        options2[0]);
+                if(result2==JOptionPane.YES_OPTION) {
 
-                return;
+                    HDDAO.deleteKM(hoadon);
+                    khuyenmai = null;
+                    btnKM.setText("");
+                    return;
+                }
             }
-            else if (result == JOptionPane.DEFAULT_OPTION) return;
         }
         KhuyenMaiFrame child = new KhuyenMaiFrame();
         child.setVisible(true);
@@ -588,7 +597,7 @@ public class ThongTinHD extends javax.swing.JFrame {
                         try { //code sau khi mở lại luồng chính
                             threadGui.wait();
                             khuyenmai = (child.getKhuyenMaiIsSelected());
-                            KMDAO.insertKMintoHD(hoadon, khuyenmai);
+                            if (khuyenmai!=null)KMDAO.insertKMintoHD(hoadon, khuyenmai);
                             paintKM();
                         } catch (InterruptedException e) {
                         }

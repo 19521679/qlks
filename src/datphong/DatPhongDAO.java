@@ -52,7 +52,7 @@ public class DatPhongDAO {
 
                 String[] words1 = throwables.toString().split("ORA-20000:");
                 String StrTemp1 = words1[1];
-                String[] words2 = StrTemp1.split("ORA-06512:");
+                String[] words2 = StrTemp1.split("ORA");
                 String StrTemp2 = words2[0];
                 return StrTemp2;
             }

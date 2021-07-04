@@ -93,7 +93,9 @@ public class HoaDonFrame extends javax.swing.JFrame {
     }
 
     public void dataChange() {
+
         listhd = HDDAO.queryHDByNgay(dateTN.getDate(), dateDN.getDate());
+        System.out.println("hoadon:"+listhd);
         listThanhToan = HDDAO.queryHDDTTByNgay(dateTN.getDate(), dateDN.getDate());
         listChuaThanhToan = HDDAO.queryHDCTTByNgay(dateTN.getDate(), dateDN.getDate());
         reset();
@@ -121,7 +123,7 @@ public class HoaDonFrame extends javax.swing.JFrame {
 
             Image image1 = Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/background/background.png"));
 
-            ImageIcon imgTemp = new javax.swing.ImageIcon(getClass().getResource("/drawable/Thongke.png"));
+            ImageIcon imgTemp = new javax.swing.ImageIcon(getClass().getResource("/drawable/hoadon (2).png"));
             Color colorTemp;
 
             JButton btnTemp = new javax.swing.JButton();

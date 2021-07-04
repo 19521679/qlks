@@ -77,7 +77,7 @@ public class ThongTinNV extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         txtMAQL = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanelTTNV.setBackground(new java.awt.Color(255, 255, 255));
 

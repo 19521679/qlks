@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -83,7 +84,7 @@ public class KhachHangDAO {
     }
 
     public ArrayList<KhachHang> queryAllKHNormal() {
-        ArrayList<KhachHang> list= new ArrayList<>();
+        ArrayList<KhachHang> list = new ArrayList<>();
 
         String sqlQuery = "SELECT * from KHACHHANG WHERE MAKH NOT IN ( " +
                 "SELECT MAKH" +
@@ -114,60 +115,59 @@ public class KhachHangDAO {
 
         return list;
     }
+
     public ArrayList<KhachHang> queryByKH(KhachHang kh) {
 
 
-        boolean preNode=false;
-        ArrayList<KhachHang> list=new ArrayList<>();
+        boolean preNode = false;
+        ArrayList<KhachHang> list = new ArrayList<>();
         String sqlQuery =
                 "SELECT * from KHACHHANG " +
                         "where ";
 
-        if (kh.getMAKH()!=null) {
+        if (kh.getMAKH() != null) {
             sqlQuery += "MAKH LIKE ('%'||'" + String.valueOf(kh.getMAKH()) + "'||'%') ";
             preNode = true;
         }
-        if (kh.getTENKH()!=null && !kh.getTENKH().isEmpty()) {
-            if (preNode==true) sqlQuery+=" AND ";
+        if (kh.getTENKH() != null && !kh.getTENKH().isEmpty()) {
+            if (preNode == true) sqlQuery += " AND ";
             sqlQuery += " TENkh LIKE ('%'||'" + kh.getTENKH() + "'||'%') ";
             preNode = true;
         }
-        if (kh.getCMND()!=null && !kh.getCMND().isEmpty()) {
-            if (preNode==true) sqlQuery+=" AND ";
+        if (kh.getCMND() != null && !kh.getCMND().isEmpty()) {
+            if (preNode == true) sqlQuery += " AND ";
             sqlQuery += " CMND LIKE ('%'||'" + kh.getCMND() + "'||'%') ";
             preNode = true;
         }
-        if (kh.getQUOCTICH()!=null && !kh.getQUOCTICH().isEmpty()) {
-            if (preNode==true) sqlQuery+=" AND ";
+        if (kh.getQUOCTICH() != null && !kh.getQUOCTICH().isEmpty()) {
+            if (preNode == true) sqlQuery += " AND ";
             sqlQuery += " QUOCTICH LIKE ('%'||'" + kh.getQUOCTICH() + "'||'%') ";
             preNode = true;
         }
-        String sysdate = new java.sql.Date(new Date(System.currentTimeMillis()).getTime()).toString();
 
 
-        String inputdate = new java.sql.Date(kh.getNGSINH().getTime()).toString();
-
-        if (kh.getNGSINH()!=null && !sysdate.equals(inputdate) ) {
-            if (preNode==true) sqlQuery+=" AND ";
-            sqlQuery += " NGAYSINH = TO_DATE('" + new java.sql.Date(kh.getNGSINH().getTime()).toString() + "','yyyy,mm,dd') ";
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        if (kh.getNGSINH() != null) {
+            if (preNode == true) sqlQuery += " AND ";
+            sqlQuery += " NGAYSINH = TO_DATE('" + format.format(kh.getNGSINH()) + "','dd/MM/yyyy') ";
             preNode = true;
         }
-        if (kh.getDIACHI()!=null && !kh.getDIACHI().isEmpty()) {
-            if (preNode==true) sqlQuery+=" AND ";
+        if (kh.getDIACHI() != null && !kh.getDIACHI().isEmpty()) {
+            if (preNode == true) sqlQuery += " AND ";
             sqlQuery += " DIACHI LIKE ('%'||'" + kh.getDIACHI() + "'||'%') ";
             preNode = true;
         }
-        if (kh.getSDT()!=null && !kh.getSDT().isEmpty()) {
-            if (preNode==true) sqlQuery+=" AND ";
+        if (kh.getSDT() != null && !kh.getSDT().isEmpty()) {
+            if (preNode == true) sqlQuery += " AND ";
             sqlQuery += " SDT LIKE ('%'||'" + kh.getSDT() + "'||'%') ";
             preNode = true;
         }
-        if (kh.getLOAIKH()!=null && !kh.getSDT().isEmpty()) {
+/*        if (kh.getLOAIKH()!=null && !kh.getSDT().isEmpty()) {
             if (preNode==true) sqlQuery+=" AND ";
             sqlQuery += " LOAIKH LIKE ('%'||'" + kh.getLOAIKH() + "'||'%') ";
             preNode = true;
-        }
-        sqlQuery+=" ORDER BY MAkh";
+        }*/
+        sqlQuery += " ORDER BY MAkh";
 
         try {
             PreparedStatement preparedStatementShow = this.connection.prepareStatement(sqlQuery);
@@ -195,7 +195,7 @@ public class KhachHangDAO {
         return list;
     }
 
-    public void removeKH(KhachHang khachhang) {
+    public String removeKH(KhachHang khachhang) {
         String SQL = "delete from KHACHHANG where MAKH=?";
 
         PreparedStatement ps = null;
@@ -205,8 +205,11 @@ public class KhachHangDAO {
             ps.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+            if (throwables.toString().contains("ORA-02292"))
+                return "Không thể xoá khách hàng vì dữ liệu đang được sử dụng \n (ràng buộc khoá ngoại)";
 
         }
+        return "Thành công";
     }
 
     public void insertKH(KhachHang khachhang) {

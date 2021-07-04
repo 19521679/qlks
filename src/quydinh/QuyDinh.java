@@ -96,7 +96,7 @@ public class QuyDinh extends javax.swing.JFrame {
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
         qdnv.setColumns(20);
-        qdnv.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        qdnv.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         qdnv.setRows(5);
         qdnv.setText("1. Mỗi nhân viên được cấp một tài khoản để đăng nhập vào hệ thống\n2.Nhân viên đảm bảo đi làm đúng giờ, mặc đúng đồng phục khách sạn đã cung cấp");
         qdnv.setEnabled(false);
@@ -107,7 +107,7 @@ public class QuyDinh extends javax.swing.JFrame {
         jScrollPane5.setBackground(new java.awt.Color(255, 255, 255));
 
         qdkm.setColumns(20);
-        qdkm.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        qdkm.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         qdkm.setRows(5);
         qdkm.setText("1.Khuyến mãi sẽ được quản lý bởi người quản lý, nhân viên chỉ có quyền xem các thông tin khuyến mãi mà không được sửa đổi.\n2.Khuyến mãi sẽ áp dụng theo 2 hình thức: khuyến mãi theo loại khách hàng, khuyến mãi theo ngày lễ lớn.");
         qdkm.setEnabled(false);
@@ -118,7 +118,7 @@ public class QuyDinh extends javax.swing.JFrame {
         jScrollPane6.setBackground(new java.awt.Color(255, 255, 255));
 
         qdp.setColumns(20);
-        qdp.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        qdp.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         qdp.setRows(5);
         qdp.setText("1. Có hai loại phòng là đôi và đơn\n2. Khi số người thuê vượt số người của loại phòng đó thì cứ thêm 1 người phụ thu là 20% giá phòng đó.\n(Ví dụ 2 khách thuê 1 phòng đơn thì giá phòng là 120% giá niêm yết.)\n3. Một khách hàng có thể 1 lúc thuê được nhiều phòng\n\n\n");
         qdp.setEnabled(false);
@@ -129,7 +129,7 @@ public class QuyDinh extends javax.swing.JFrame {
         jScrollPane7.setBackground(new java.awt.Color(255, 255, 255));
 
         qddv.setColumns(20);
-        qddv.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        qddv.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         qddv.setRows(5);
         qddv.setText("1. Khi khách đặt thuê phòng thì mới được thuê dịch vụ.");
         qddv.setEnabled(false);
@@ -140,7 +140,7 @@ public class QuyDinh extends javax.swing.JFrame {
         jScrollPane4.setBackground(new java.awt.Color(255, 255, 255));
 
         qdhd.setColumns(20);
-        qdhd.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        qdhd.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         qdhd.setRows(5);
         qdhd.setText("1. Khi khách hàng thuê phòng thì 1 hóa đơn sẽ được tạo trước, kèm theo phiếu thuê phòng chứa thông tin các phòng được thuê và phiếu dịch vụ (nếu có) \nchứa thông tin các dịch vụ được thuê.");
         qdhd.setEnabled(false);
@@ -258,18 +258,14 @@ public class QuyDinh extends javax.swing.JFrame {
         });
     }
 */
-
+    public static void main(String[] args) {
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonCapNhat;
     private javax.swing.JButton ButtonLuu;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabelAVT;
-    private javax.swing.JLabel jLabelAVT1;
     private javax.swing.JLabel jLabelAVT2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;

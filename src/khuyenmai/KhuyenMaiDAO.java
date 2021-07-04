@@ -2,6 +2,7 @@ package khuyenmai;
 
 import database.Database;
 import hoadon.HoaDon;
+import khachhang.KhachHang;
 import khuyenmai.KhuyenMai;
 
 import javax.swing.*;
@@ -9,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -93,6 +95,9 @@ public class KhuyenMaiDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("lm tìm:"+list.toString());
+        System.out.println("ngabd:"+startDate.toString());
+        System.out.println("ngaykt:"+endDate.toString());
         return list;
 
     }
@@ -123,6 +128,9 @@ public class KhuyenMaiDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("lm tìm:"+list.toString());
+        System.out.println("ngabd:"+startDate.toString());
+        System.out.println("ngaykt:"+endDate.toString());
         return list;
     }
 
@@ -152,7 +160,7 @@ public class KhuyenMaiDAO {
         return list;
     }
 
-    public void remove(KhuyenMai km) {
+    public String remove(KhuyenMai km) {
         String SQL = "delete from KhuyenMai where MAKM=?";
 
 
@@ -163,8 +171,10 @@ public class KhuyenMaiDAO {
             ps.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-
+            if (throwables.toString().contains("ORA-02292"))
+                return "Không thể xoá vì khuyến mãi này đang xử dụng \n (ràng buộc khoá ngoại)";
         }
+        return "Thành công";
 
 
     }
@@ -234,10 +244,69 @@ public class KhuyenMaiDAO {
         return true;
     }
 
+    public ArrayList<KhuyenMai> queryByKM(KhuyenMai km) {
 
-    public ArrayList<KhuyenMai> find(KhuyenMai km) {
-        return new ArrayList<>();
+
+        boolean preNode = false;
+        ArrayList<KhuyenMai> list = new ArrayList<>();
+        String sqlQuery =
+                "SELECT * from KHUYENMAI " +
+                        "where ";
+
+        if (km.getMAKM() != null && !km.getMAKM().isEmpty()) {
+            sqlQuery += "MAKM LIKE ('%'||'" + String.valueOf(km.getMAKM()) + "'||'%') ";
+            preNode = true;
+        }
+        if (km.getTENKM() != null && !km.getTENKM().isEmpty()) {
+            if (preNode == true) sqlQuery += " AND ";
+            sqlQuery += " TENKM LIKE ('%'||'" + km.getTENKM() + "'||'%') ";
+            preNode = true;
+        }
+        if (km.getMOTA() != null && !km.getMOTA().isEmpty()) {
+            if (preNode == true) sqlQuery += " AND ";
+            sqlQuery += " MOTA LIKE ('%'||'" + km.getMOTA() + "'||'%') ";
+            preNode = true;
+        }
+        if (km.getTILE() != null) {
+            if (preNode == true) sqlQuery += " AND ";
+            sqlQuery += " TILE = " + km.getTILE() + " ";
+            preNode = true;
+        }
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        if (km.getNGBD() != null) {
+            if (preNode == true) sqlQuery += " AND ";
+            sqlQuery += "TO_DATE(NGAYBD,'dd/MM/yyyy') <= TO_DATE('" + format.format(km.getNGKT()) + "','dd/MM/yyyy') ";
+            preNode = true;
+        }
+        if (km.getNGKT() != null) {
+            if (preNode == true) sqlQuery += " AND ";
+            sqlQuery += "TO_DATE(NGAKT,'dd/MM/yyyy') >= TO_DATE('" + format.format(km.getNGBD()) + "','dd/MM/yyyy') ";
+            preNode = true;
+        }
+
+        sqlQuery += " ORDER BY MAKM";
+
+        try {
+            PreparedStatement preparedStatementShow = this.connection.prepareStatement(sqlQuery);
+
+            ResultSet rs = preparedStatementShow.executeQuery();
+            while (rs.next()) {
+                String makm = rs.getString("MAKM");
+                String tenkm = rs.getString("TENKM");
+                String mota = rs.getString("MOTA");
+                Float tile = rs.getFloat("TILE");
+                Date ngaybd = rs.getDate("NGAYBD");
+                Date ngaykt = rs.getDate("NGAYKT");
+
+                list.add(new KhuyenMai(makm, tenkm, mota, tile, ngaybd, ngaykt));
+            }
+        } catch (SQLException e) {
+        }
+
+
+        return list;
     }
+
 
 
     public KhuyenMaiDAO() {

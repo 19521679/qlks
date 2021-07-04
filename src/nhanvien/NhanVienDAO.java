@@ -1,4 +1,4 @@
-    package nhanvien;
+package nhanvien;
 
 import database.Database;
 import dichvu.DichVu;
@@ -17,7 +17,8 @@ import java.util.logging.Logger;
 
 public class NhanVienDAO {
 
-    Connection connection=null;
+    Connection connection = null;
+
     public ArrayList<NhanVien> queryAllNV() {
         ArrayList<NhanVien> list = new ArrayList<>();
         String sqlQuery = "SELECT * from NHANVIEN Order by MANV";
@@ -36,10 +37,10 @@ public class NhanVienDAO {
                 String gioitinh = rs.getString("GIOITINH");
                 String dc = rs.getString("DCHI");
                 String sdt = rs.getString("SODT");
-                Date ngsinh=rs.getDate("NGSINH");
-                Date ngvl=rs.getDate("NGVL");
-                Integer luong =rs.getInt("LUONG");
-                NhanVien nv = new NhanVien(manv,maql, tennv, gioitinh, dc,sdt, ngsinh,ngvl,luong);
+                Date ngsinh = rs.getDate("NGSINH");
+                Date ngvl = rs.getDate("NGVL");
+                Integer luong = rs.getInt("LUONG");
+                NhanVien nv = new NhanVien(manv, maql, tennv, gioitinh, dc, sdt, ngsinh, ngvl, luong);
                 list.add(nv);
 
             }
@@ -55,7 +56,7 @@ public class NhanVienDAO {
         String sqlQuery = "SELECT * from NHANVIEN WHERE MANV =?";
         try {
             PreparedStatement preparedStatementShow = this.connection.prepareStatement(sqlQuery);
-            preparedStatementShow.setString(1,hoadon.getMANV());
+            preparedStatementShow.setString(1, hoadon.getMANV());
             ResultSet rs = preparedStatementShow.executeQuery();
 
             while (rs.next()) {
@@ -69,10 +70,10 @@ public class NhanVienDAO {
                 String dc = rs.getString("DCHI");
                 String sdt = rs.getString("SODT");
 
-                Date ngsinh=rs.getDate("NGSINH");
-                Date ngvl=rs.getDate("NGVL");
-                Integer luong =rs.getInt("LUONG");
-                return new NhanVien(manv,maql, tennv, gioitinh, dc,sdt, ngsinh,ngvl,luong);
+                Date ngsinh = rs.getDate("NGSINH");
+                Date ngvl = rs.getDate("NGVL");
+                Integer luong = rs.getInt("LUONG");
+                return new NhanVien(manv, maql, tennv, gioitinh, dc, sdt, ngsinh, ngvl, luong);
 
             }
         } catch (SQLException e) {
@@ -81,8 +82,8 @@ public class NhanVienDAO {
 
         return new NhanVien();
     }
-    public void insert(NhanVien nv)
-    {
+
+    public void insert(NhanVien nv) {
         String SQL = "insert into NHANVIEN( HOTEN, MAQL ,GIOITINH , DCHI, SODT,NGSINH, NGVL, LUONG) values(?,?,?,?,?,?,?,?)";
 
 
@@ -96,9 +97,9 @@ public class NhanVienDAO {
             ps.setString(4, nv.getDCHI());
             ps.setString(5, nv.getSODT());
 
-            ps.setDate(6,new java.sql.Date(nv.getNGSINH().getTime()));
-            ps.setDate(7,new java.sql.Date(nv.getNGVL().getTime()));
-            ps.setInt(8,nv.getLUONG());
+            ps.setDate(6, new java.sql.Date(nv.getNGSINH().getTime()));
+            ps.setDate(7, new java.sql.Date(nv.getNGVL().getTime()));
+            ps.setInt(8, nv.getLUONG());
 
             ps.executeUpdate();
         } catch (SQLException throwables) {
@@ -106,6 +107,7 @@ public class NhanVienDAO {
 
         }
     }
+
     public void update(NhanVien nv) {
         String SQL = "update NHANVIEN set  HOTEN=?, MAQL=?, GIOITINH=?,  DCHI=?, SDT=?, NGSINH=?, NGVL=?, LUONG=? where MANV = ?";
 
@@ -120,9 +122,9 @@ public class NhanVienDAO {
             ps.setString(3, nv.getDCHI());
             ps.setString(4, nv.getSODT());
 
-            ps.setDate(5,new java.sql.Date(nv.getNGSINH().getTime()));
-            ps.setDate(6,new java.sql.Date(nv.getNGVL().getTime()));
-            ps.setInt(7,nv.getLUONG());
+            ps.setDate(5, new java.sql.Date(nv.getNGSINH().getTime()));
+            ps.setDate(6, new java.sql.Date(nv.getNGVL().getTime()));
+            ps.setInt(7, nv.getLUONG());
             ps.setString(8, nv.getHOTEN());
 
             ps.executeUpdate();
@@ -130,20 +132,23 @@ public class NhanVienDAO {
             throwables.printStackTrace();
         }
     }
-    public boolean deleteDatabase(NhanVien nv) {
+
+    public String deleteDatabase(NhanVien nv) {
 
         try {
             String query = "DELETE FROM NHANVIEN WHERE MANV =?";
 
-            PreparedStatement ps=connection.prepareStatement(query);
+            PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1, nv.getMANV());
 
-            return (ps.executeUpdate()>0);
+            ps.executeUpdate();
         } catch (SQLException ex) {
-            System.out.println(ex);
-            Logger.getLogger(DichVu.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
+            ex
+                    .printStackTrace();
+            if (ex.toString().contains("ORA-02292"))
+                return "Không thể xoá vì nhân viên đang chứa liên kết \n (Ràng buộc khoá ngoại)";
         }
+        return "Thành công";
 
     }
 
@@ -151,11 +156,11 @@ public class NhanVienDAO {
     public ArrayList<NhanVien> queryByNV(NhanVien nv) {
 
 
-        ArrayList<NhanVien> list=new ArrayList<>();
+        ArrayList<NhanVien> list = new ArrayList<>();
         String sqlQuery = "SELECT * from NHANVIEN WHERE MANV =?";
         try {
             PreparedStatement preparedStatementShow = this.connection.prepareStatement(sqlQuery);
-            preparedStatementShow.setString(1,nv.getMANV());
+            preparedStatementShow.setString(1, nv.getMANV());
             ResultSet rs = preparedStatementShow.executeQuery();
 
             while (rs.next()) {
@@ -166,10 +171,10 @@ public class NhanVienDAO {
                 String gioitinh = rs.getString("GIOITINH");
                 String dc = rs.getString("DCHI");
                 String sdt = rs.getString("SODT");
-                Date ngsinh=rs.getDate("NGSINH");
-                Date ngvl=rs.getDate("NGVL");
-                Integer luong =rs.getInt("LUONG");
-                list.add(new NhanVien(manv,maql, tennv, gioitinh, dc,sdt, ngsinh,ngvl,luong));
+                Date ngsinh = rs.getDate("NGSINH");
+                Date ngvl = rs.getDate("NGVL");
+                Integer luong = rs.getInt("LUONG");
+                list.add(new NhanVien(manv, maql, tennv, gioitinh, dc, sdt, ngsinh, ngvl, luong));
 
             }
         } catch (SQLException e) {
@@ -184,10 +189,9 @@ public class NhanVienDAO {
         setConnection();
     }
 
-    public boolean setConnection()
-    {
-        this.connection= Database.getConnection();
-        if (connection==null) {
+    public boolean setConnection() {
+        this.connection = Database.getConnection();
+        if (connection == null) {
             JOptionPane.showMessageDialog(null, "Can not connect to database.");
             System.exit(1);
             return false;
