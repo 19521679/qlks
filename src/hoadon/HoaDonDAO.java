@@ -262,12 +262,12 @@ public class HoaDonDAO {
 
         try {
 
-            String query = "UPDATE HOADON SET MAKM =? WHERE SOHD= ? ";
+            String query = "UPDATE HOADON SET MAKM = NULL WHERE SOHD= ? ";
 
             PreparedStatement ps = connection.prepareStatement(query);
 
-            ps.setString(1, null);
-            ps.setString(2, hd.getSOHD());
+
+            ps.setString(1, hd.getSOHD());
 
            ps.executeUpdate() ;
 

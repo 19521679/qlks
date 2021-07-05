@@ -557,6 +557,11 @@ public class ThongTinTT extends javax.swing.JFrame {
     public void setTheadTTTT(Thread th, HoaDon hd) {
         threadNhan = th;
         hoadon = hd;
+        if (hoadon.getNGAYHD()!=null)
+        {
+            btnKM.setEnabled(false);
+            btnTT.setVisible(false);
+        }
         listTPh = PDAO.queryTPBySOHD(hoadon);
         listDv = DVDAO.queryTDVBySOHD(hoadon);
         Date date = new Date(System.currentTimeMillis());

@@ -107,7 +107,7 @@ public class HoaDonFrame extends javax.swing.JFrame {
     }
 
     private void reset() {
-        listIsSelected.remove(listIsSelected);
+        listIsSelected.removeAll(listIsSelected);
         jPanel8.removeAll();
         jPanel8.repaint();
         painthd();
@@ -588,33 +588,64 @@ public class HoaDonFrame extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(null, "Bạn chưa chọn hoá đơn nào", "Thông tin", JOptionPane.INFORMATION_MESSAGE);
         else {
-            ThongTinHD child = new ThongTinHD();
-            child.setVisible(true);
-            Runnable runnable = new Runnable() {
-                @Override
-                public void run() {
-                    {
-                        synchronized (threadGui) {
-                            // Pause
-                            try { //code sau khi mở lại luồng chính
-                                threadGui.wait();
+            if (listIsSelected.get(0).getNGAYHD()!=null)
+            {
+                ThongTinTT child = new ThongTinTT();
+                child.setVisible(true);
+                Runnable runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        {
+                            synchronized (threadGui) {
+                                // Pause
+                                try { //code sau khi mở lại luồng chính
+                                    threadGui.wait();
 
-                                notifyDateChange();
-                            } catch (InterruptedException e) {
+                                    notifyDateChange();
+                                } catch (InterruptedException e) {
+                                }
                             }
+
                         }
-
                     }
-                }
 
-            };
+                };
 
-            threadGui = new Thread(runnable);
+                threadGui = new Thread(runnable);
 
-            child.setTheadTTHD(threadGui, listIsSelected.get(0));
+                child.setTheadTTTT(threadGui, listIsSelected.get(0));
 
-            //từ đây trở lên là trước khi luồng chính bị đóng
-            threadGui.start();
+                //từ đây trở lên là trước khi luồng chính bị đóng
+                threadGui.start();
+            }else {
+                ThongTinHD child = new ThongTinHD();
+                child.setVisible(true);
+                Runnable runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        {
+                            synchronized (threadGui) {
+                                // Pause
+                                try { //code sau khi mở lại luồng chính
+                                    threadGui.wait();
+
+                                    notifyDateChange();
+                                } catch (InterruptedException e) {
+                                }
+                            }
+
+                        }
+                    }
+
+                };
+
+                threadGui = new Thread(runnable);
+
+                child.setTheadTTHD(threadGui, listIsSelected.get(0));
+
+                //từ đây trở lên là trước khi luồng chính bị đóng
+                threadGui.start();
+            }
         }
     }//GEN-LAST:event_btnCNCActionPerformed
 
