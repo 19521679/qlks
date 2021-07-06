@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="InHD" language="groovy" pageWidth="595" pageHeight="842" columnWidth="581" leftMargin="7" rightMargin="7" topMargin="7" bottomMargin="7" uuid="51c49360-14f6-4767-bed7-224e6ddc3eef">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="53"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 6">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 8_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 8_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 8_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 9">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 9_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 9_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 9_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<subDataset name="New Dataset 1" uuid="fcd11bc5-2856-4f56-821e-c2ca3f4e98f2">
+		<parameter name="SoHD12" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT MAPH, SONGUOITHUE, NGBD, NGKT, TIEN
+FROM THUE_PHONG TP, HOADON HD
+WHERE TP.MAPHIEUTP = HD.MAPHIEUTP AND HD.SOHD = $P{SoHD12}]]>
+		</queryString>
+		<field name="MAPH" class="java.lang.String"/>
+		<field name="SONGUOITHUE" class="java.math.BigDecimal"/>
+		<field name="NGBD" class="java.sql.Timestamp"/>
+		<field name="NGKT" class="java.sql.Timestamp"/>
+		<field name="TIEN" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="New Dataset 2" uuid="0c95a5f0-a4e8-40c5-80b3-6019d194839b">
+		<parameter name="SoHD22" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT TENDV, NGAYBD, NGAYKT, TIEN
+FROM THUE_DICH_VU tdv, DICHVU dv, HOADON HD
+WHERE tdv.MADV = dv.MADV AND tdv.MAPHIEUTDV = HD.MAPHIEUTDV
+AND HD.SOHD = $P{SoHD22}]]>
+		</queryString>
+		<field name="TENDV" class="java.lang.String"/>
+		<field name="NGAYBD" class="java.sql.Timestamp"/>
+		<field name="NGAYKT" class="java.sql.Timestamp"/>
+		<field name="TIEN" class="java.math.BigDecimal"/>
+	</subDataset>
+	<parameter name="SoHD1" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT KH.TENKH, KH.DIACHI, KH.SDT, NV.HOTEN, HD.THANHTIEN,
+HD.NGAYHD, HD.SOHD , HD.MAPHIEUTP, HD.MAPHIEUTDV, PTP.TIENTP, PTDV.TIENTDV
+FROM KHACHHANG KH, NHANVIEN NV, HOADON HD, KHUYENMAI KM, PHIEUTHUEPHONG PTP,
+PHIEUTHUEDICHVU PTDV
+WHERE KH.MAKH = HD.MAKH AND NV.MANV = HD.MANV  AND
+HD.MAPHIEUTP = PTP.MAPHIEUTP AND HD.MAPHIEUTDV = PTDV.MAPHIEUTDV
+AND HD.SOHD = $P{SoHD1}]]>
+	</queryString>
+	<field name="TENKH" class="java.lang.String"/>
+	<field name="DIACHI" class="java.lang.String"/>
+	<field name="SDT" class="java.lang.String"/>
+	<field name="HOTEN" class="java.lang.String"/>
+	<field name="THANHTIEN" class="java.math.BigDecimal"/>
+	<field name="NGAYHD" class="java.sql.Timestamp"/>
+	<field name="SOHD" class="java.lang.String"/>
+	<field name="MAPHIEUTP" class="java.lang.String"/>
+	<field name="MAPHIEUTDV" class="java.lang.String"/>
+	<field name="TIENTP" class="java.math.BigDecimal"/>
+	<field name="TIENTDV" class="java.math.BigDecimal"/>
+	<variable name="TIENTP_1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{TIENTP}]]></variableExpression>
+	</variable>
+	<variable name="TIENTDV_1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{TIENTDV}]]></variableExpression>
+	</variable>
+	<group name="ChiTietThuePhong">
+		<groupExpression><![CDATA[$F{MAPHIEUTP}]]></groupExpression>
+		<groupHeader>
+			<band height="91">
+				<componentElement>
+					<reportElement key="table 6" x="0" y="0" width="555" height="80" uuid="898d6df8-dbd3-4d2a-99c7-4906ccbbedda"/>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<datasetRun subDataset="New Dataset 1" uuid="ee699f69-23d8-49b3-9310-55b8a3349e0f">
+							<datasetParameter name="SoHD12">
+								<datasetParameterExpression><![CDATA[$P{SoHD1}]]></datasetParameterExpression>
+							</datasetParameter>
+							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						</datasetRun>
+						<jr:column width="122" uuid="5145c737-9a65-4141-affe-3090aa897328">
+							<jr:columnHeader height="39" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="122" height="39" uuid="c96c8a75-305d-49c7-88b3-c442d3917e36"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Times New Roman" size="12"/>
+									</textElement>
+									<text><![CDATA[MÃ PHÒNG]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="33" rowSpan="1">
+								<textField>
+									<reportElement x="3" y="0" width="119" height="33" uuid="d46b64a8-df1f-496c-a272-469291f4feec"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Times New Roman" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{MAPH}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="106" uuid="da909223-d2ed-4970-9330-57b49bc5cdf0">
+							<jr:columnHeader height="39" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="106" height="39" uuid="f3c89b7d-0941-4a17-9544-fc09f3849563"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Times New Roman" size="12"/>
+									</textElement>
+									<text><![CDATA[NGÀY BẮT ĐẦU]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="33" rowSpan="1">
+								<textField pattern="dd/MM/yyyy">
+									<reportElement x="0" y="0" width="106" height="33" uuid="57d66e9d-12e1-44b4-9246-981ff6bdf45e"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Times New Roman" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{NGBD}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="115" uuid="45ab36e0-6592-4e5d-8585-79f8403cf89f">
+							<jr:columnHeader height="39" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="115" height="39" uuid="42ad3d6e-8270-4622-bbc4-8238a95a0ba2"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Times New Roman" size="12"/>
+									</textElement>
+									<text><![CDATA[NGÀY KẾT THÚC]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="33" rowSpan="1">
+								<textField pattern="dd/MM/yyyy">
+									<reportElement x="0" y="0" width="115" height="33" uuid="0716000a-6994-439a-9dfa-73962101ada7"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Times New Roman" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{NGKT}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="121" uuid="16688216-31a9-4686-9894-5f2113014ae3">
+							<jr:columnHeader height="39" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="121" height="39" uuid="d9007a58-9fc1-4e8a-b1f7-3907fb15b0b1"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Times New Roman" size="12"/>
+									</textElement>
+									<text><![CDATA[TIỀN THUÊ PHÒNG]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="33" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="121" height="33" uuid="1baa10e1-64e2-4d58-ac98-07015139b033"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Times New Roman" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{TIEN}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="110" uuid="ad16426e-fb60-4918-b583-db6a1bd53c73">
+							<jr:columnHeader height="39" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="110" height="39" uuid="3de18611-5bf2-4164-b11a-1a7f6f613255"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Times New Roman" size="12"/>
+									</textElement>
+									<text><![CDATA[SỐ NGƯỜI THUÊ]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="33" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="110" height="33" uuid="bb795fd9-8ede-46b5-85ac-9275d9f2babd"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Times New Roman" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{SONGUOITHUE}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="ChiTietThueDV">
+		<groupExpression><![CDATA[$F{MAPHIEUTDV}]]></groupExpression>
+		<groupHeader>
+			<band height="88">
+				<line>
+					<reportElement x="0" y="0" width="555" height="1" uuid="404569ef-25a3-4dea-89fa-4ac306024fc1"/>
+				</line>
+				<componentElement>
+					<reportElement key="table 9" style="table 9" x="0" y="12" width="555" height="76" uuid="fe454e51-8730-40ef-a780-4012b648b6b2"/>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<datasetRun subDataset="New Dataset 2" uuid="1331a2ce-5450-47d3-9b5a-5e4ef5d24f04">
+							<datasetParameter name="SoHD22">
+								<datasetParameterExpression><![CDATA[$P{SoHD1}]]></datasetParameterExpression>
+							</datasetParameter>
+							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						</datasetRun>
+						<jr:column width="130" uuid="cb115e22-9367-4d97-85f9-28e4ef383af3">
+							<jr:columnHeader height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="130" height="30" backcolor="#CCCCFF" uuid="638af5d7-a34f-4afb-9cb2-b532c7688c90"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Times New Roman" size="12"/>
+									</textElement>
+									<text><![CDATA[TÊN DỊCH VỤ]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell style="table 9_TD" height="33" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="130" height="33" uuid="0c9ec0f8-281c-45fa-9cd2-2ac08b6052f2"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Times New Roman" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{TENDV}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="138" uuid="8268e34f-8cd7-4e9b-93db-ae0bd7cf0500">
+							<jr:columnHeader height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="138" height="30" uuid="4f3a4665-67f9-477a-a923-ea2d43daea46"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Times New Roman" size="12"/>
+									</textElement>
+									<text><![CDATA[NGÀY BẮT ĐẦU]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell style="table 9_TD" height="33" rowSpan="1">
+								<textField pattern="dd/MM/yyyy">
+									<reportElement x="0" y="0" width="138" height="33" uuid="b3a24e09-98f4-4846-9c5d-0e18a1806dea"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Times New Roman" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{NGAYBD}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="143" uuid="755d11c5-def5-4d13-82db-7c12d4ca4f08">
+							<jr:columnHeader height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="143" height="30" uuid="c07c7181-8dec-4b2d-832b-5600d43c93b9"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Times New Roman" size="12"/>
+									</textElement>
+									<text><![CDATA[NGÀY KẾT THÚC]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell style="table 9_TD" height="33" rowSpan="1">
+								<textField pattern="dd/MM/yyyy">
+									<reportElement x="0" y="0" width="143" height="33" uuid="5f29a017-bb15-449b-a96d-7de95d6d32e5"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Times New Roman" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{NGAYKT}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="168" uuid="3c274357-06db-40a5-a595-5746e28b513c">
+							<jr:columnHeader height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="168" height="30" uuid="28cc4ab7-ed48-45d2-803f-272bd73c8cc0"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Times New Roman" size="12"/>
+									</textElement>
+									<text><![CDATA[TIỀN DỊCH VỤ]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell style="table 9_TD" height="33" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="168" height="33" uuid="b2a2d1a9-2353-4cfb-9141-3f62c9f7c2fd"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="Times New Roman" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{TIEN}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="156">
+				<frame>
+					<reportElement x="0" y="0" width="555" height="42" uuid="3a452fc2-0765-4ce1-8881-7ed4dbe5ecd2"/>
+					<staticText>
+						<reportElement x="193" y="2" width="213" height="39" uuid="e1f890d1-2444-4bdc-ba06-463b3a2f71f2"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Times New Roman" size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[TỔNG TIỀN THUÊ PHÒNG: ]]></text>
+					</staticText>
+					<line>
+						<reportElement x="0" y="1" width="555" height="1" uuid="0828f476-3450-4740-9ab2-e02e581b818f"/>
+					</line>
+					<textField>
+						<reportElement x="406" y="2" width="149" height="39" uuid="9114a67d-4ac4-4f17-bfd7-2babb0e85d19"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Times New Roman" size="12" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{TIENTP}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement x="0" y="42" width="555" height="43" uuid="3aec7e3c-dabe-459b-984a-185dde25620f"/>
+					<line>
+						<reportElement x="0" y="40" width="555" height="1" uuid="cecfa11f-decb-4fdf-9848-91487eee08bb"/>
+					</line>
+					<line>
+						<reportElement x="0" y="0" width="555" height="1" uuid="800d6bce-839a-4c71-9a6b-2759eb90831c"/>
+					</line>
+					<staticText>
+						<reportElement x="193" y="1" width="213" height="38" uuid="508c9fc9-ab36-44ec-8361-fe0483b8ae32"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Times New Roman" size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[TỔNG TIỀN THUÊ DỊCH VỤ: ]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="406" y="1" width="149" height="41" uuid="faeb871d-48b5-46ab-b5c1-b98abbadb844"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Times New Roman" size="12" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{TIENTDV}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<staticText>
+					<reportElement x="193" y="118" width="213" height="38" uuid="53957dd6-9fc0-4a09-8862-84d43819d32d"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TỔNG TIỀN THUÊ HÓA ĐƠN: ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="406" y="118" width="149" height="38" uuid="529e7e40-834e-443f-882e-fcf638c5e1ea"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{THANHTIEN}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="0" y="155" width="581" height="1" uuid="2ad93713-bb37-4139-a089-0a3c0eac8659"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="83" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="42" width="581" height="41" backcolor="#000000" uuid="e0b86b96-de2f-4f03-a6d3-527909d2ab10"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="30"/>
+				</textElement>
+				<text><![CDATA[HÓA ĐƠN]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="0" width="320" height="68" uuid="0bbc9704-967d-441e-8ad5-9b40dbcb9e19"/>
+				<staticText>
+					<reportElement x="93" y="0" width="121" height="22" uuid="c3d29c3b-8d69-4c43-bb12-304b3f8758b6"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ÁNH DƯƠNG HOTEL]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="93" y="22" width="227" height="20" uuid="59fe4570-d9a1-41b1-9ff6-c6c0b37bd344"/>
+					<text><![CDATA[Địa chỉ: KP 6, phường Linh Trung, TP Thủ Đức]]></text>
+				</staticText>
+			</frame>
+			<image>
+				<reportElement x="41" y="0" width="52" height="42" uuid="06e0b8f4-c131-4b16-a889-4512df999909"/>
+				<imageExpression><![CDATA["C:\\Users\\khanh\\Documents\\NetBeansProjects\\quanlykhachsan\\src\\thongke\\report\\212664618_230825415362548_1112387875735302315_n.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="23" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="455" y="3" width="100" height="20" uuid="6fbe8113-ce21-4425-8aa0-f1f4bc9f0ccf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NGAYHD}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="3" width="93" height="20" uuid="effcce7a-8a52-4a4b-97c9-001943a4e518"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<text><![CDATA[SỐ HÓA ĐƠN: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="3" width="113" height="20" uuid="14efbce0-5b26-4e0c-9af6-867b2cce01ea"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<text><![CDATA[NGÀY HÓA ĐƠN: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="93" y="3" width="110" height="20" uuid="b823d880-e1ac-438f-84b5-8c502e14e197"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{SoHD1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="111" splitType="Stretch">
+			<textField>
+				<reportElement x="129" y="35" width="118" height="20" uuid="c0c86c98-2a66-4094-bf4c-814ea8f4c713"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TENKH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="129" y="55" width="118" height="20" uuid="c984be46-4618-456a-8b40-ad2bd88f8dbe"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DIACHI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="129" y="75" width="118" height="20" uuid="8ea6a19c-c609-4ca3-8008-fbfc563c9269"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SDT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="35" width="114" height="20" uuid="d64de660-882f-4a5d-8b14-ca8f616accba"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HOTEN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="35" width="129" height="20" uuid="34bc205b-2a36-435e-94dc-e3e358cc7e26"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<text><![CDATA[Tên khách hàng: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="55" width="129" height="20" uuid="59c64d73-c47f-415e-b175-492b3e3f3c42"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<text><![CDATA[Địa chỉ khách hàng: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="75" width="129" height="20" uuid="16aefabd-dbd9-4297-942e-aca2413a5cb5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<text><![CDATA[SĐT: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="356" y="35" width="99" height="20" uuid="2934e45f-b142-4187-b27e-f3c4929250fb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<text><![CDATA[Tên nhân viên: ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="18" width="581" height="21" uuid="1af9a0d8-a9ae-4cb5-a3ae-56cf4fe77ddd"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Segoe UI" size="11"/>
+				</textElement>
+				<text><![CDATA[------------------------ 0 --------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="581" height="18" uuid="0b46f3a5-5d78-4d84-820f-a87783e3e163"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Segoe UI" size="11"/>
+				</textElement>
+				<text><![CDATA[Cảm ơn và hẹn gặp lại quý khách]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

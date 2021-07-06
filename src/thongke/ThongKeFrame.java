@@ -513,7 +513,9 @@ public class ThongKeFrame extends javax.swing.JFrame {
 
         btnTN.setBackground(new java.awt.Color(255, 204, 204));
         btnTN.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnTN.setText("Thống kê doanh thu theo năm");
+        btnTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/thongke/KTDT.png"))); // NOI18N
+        btnTN.setText("Thống kê doanh thu theo năm  ");
+        btnTN.setToolTipText("");
         btnTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTNActionPerformed(evt);
@@ -522,6 +524,7 @@ public class ThongKeFrame extends javax.swing.JFrame {
 
         btnTT.setBackground(new java.awt.Color(255, 204, 204));
         btnTT.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnTT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/thongke/KTDT.png"))); // NOI18N
         btnTT.setText("Thống kê doanh thu theo tháng");
         btnTT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -531,6 +534,7 @@ public class ThongKeFrame extends javax.swing.JFrame {
 
         btnKH.setBackground(new java.awt.Color(255, 204, 204));
         btnKH.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnKH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/thongke/TKKH.png"))); // NOI18N
         btnKH.setText("Khách hàng tiềm năng");
         btnKH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -552,6 +556,7 @@ public class ThongKeFrame extends javax.swing.JFrame {
 
         btnDV.setBackground(new java.awt.Color(255, 204, 204));
         btnDV.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnDV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/thongke/TKDV.png"))); // NOI18N
         btnDV.setText("Thống kê các dịch vụ");
         btnDV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -605,7 +610,7 @@ public class ThongKeFrame extends javax.swing.JFrame {
                         .addComponent(dateTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(dateDN, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabelDN, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -659,8 +664,7 @@ public class ThongKeFrame extends javax.swing.JFrame {
             int year = cal.get(Calendar.YEAR);
             int month = cal.get(Calendar.MONTH);
             int day = cal.get(Calendar.DAY_OF_MONTH);
-            System.out.println(year);
-            System.out.println(month);
+
             HashMap hm = new HashMap();
             hm.put("Tháng thống kê", month+1);
             hm.put("Năm thống kê", year);
