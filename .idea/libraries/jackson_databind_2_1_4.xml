@@ -1,0 +1,36 @@
+<component name="libraryTable">
+  <library name="jackson-databind-2.1.4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/tool/jackson-databind-2.1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/lucene-analyzers-common-4.5.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/bcprov-jdk14-138.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/lucene-core-4.5.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/jdtcore-3.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/lucene-sandbox-4.5.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/olap4j-0.9.7.309-JS-3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/jfreechart-1.0.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/commons-collections-3.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/commons-logging-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/commons-digester-2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/bctsp-jdk14-1.38.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/bcmail-jdk14-1.38.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/commons-beanutils-1.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/jcommon-1.0.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/itext-2.1.7.js2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/lucene-queries-4.5.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/jakarta-regexp-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/jackson-core-2.1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/castor-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/xml-apis-1.3.02.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/absolutelayout.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/bcprov-jdk14-1.38.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/bcmail-jdk14-138.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/jasperreports-5.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/lucene-queryparser-4.5.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/jackson-annotations-2.1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/tool/groovy-all-2.4.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

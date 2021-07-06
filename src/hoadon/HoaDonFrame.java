@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import Util.MyPrinter;
 import com.toedter.calendar.JDateChooser;
 import Util.MyConvert;
+import database.Database;
 import datphong.DatPhong;
 import dichvu.DichVu;
 import dichvu.DichVuDAO;
@@ -21,9 +22,14 @@ import homepage.TongQuan;
 import homepage.home;
 import khachhang.KhachHang;
 import khachhang.KhachHangDAO;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import phong.PhongDAO;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -159,8 +165,11 @@ public class HoaDonFrame extends javax.swing.JFrame {
 
                 listIsSelected.add(matches.get(0));
                 List<HoaDon> matches1 = listChuaThanhToan.stream().filter(it -> it.getSOHD().toString().contains(matches.get(0).getSOHD())).collect(Collectors.toList());
-                if (!matches1.isEmpty()) btnTT.setEnabled(true);
-                else btnTT.setEnabled(false);
+                if (!matches1.isEmpty()){ btnTT.setEnabled(true);btnIHD.setEnabled(false);}
+                else {
+                    btnTT.setEnabled(false);
+                    btnIHD.setEnabled(true);
+                }
                 buttonIsSelected = btnTemp;
                 buttonIsSelected.setBackground(new java.awt.Color(0, 204, 255));
             });
@@ -693,7 +702,63 @@ public class HoaDonFrame extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(null, "Bạn chưa chọn hoá đơn nào", "Thông tin", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            new MyPrinter().printMyContent(listIsSelected.get(0));
+            if (listIsSelected.get(0).getMAKM()!=null) {
+                String sohd = listIsSelected.get(0).getSOHD();
+                try {
+                    JasperDesign jd = JRXmlLoader.load(
+                            "C:\\Users\\khanh\\Documents\\NetBeansProjects\\quanlykhachsan\\src\\thongke\\report\\InHD.jrxml"
+                    );
+                    JasperReport jr = JasperCompileManager.compileReport(
+                            "C:\\Users\\khanh\\Documents\\NetBeansProjects\\quanlykhachsan\\src\\thongke\\report\\InHD.jrxml"
+                    );
+
+                    HashMap hm = new HashMap();
+                    hm.put("SoHD1", sohd);
+
+                    JasperPrint jp = JasperFillManager.fillReport(jr, hm, Database.getConnection());
+                    JasperViewer.viewReport(jp, false);
+
+                    java.text.SimpleDateFormat sdm = new java.text.SimpleDateFormat("dd MM yyyy hh mm ss");
+
+                    String fileName = "report " + sdm.format(new java.util.Date()) + ".pdf";
+
+                    JasperExportManager.exportReportToPdfFile(
+                            jp, "C:\\Users\\khanh\\Documents\\NetBeansProjects\\quanlykhachsan\\src\\thongke\\report" + fileName
+                    );
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Cannot show report" + e);
+                    e.printStackTrace();
+                }
+            }
+            else
+            {
+                String sohd = listIsSelected.get(0).getSOHD();
+                try {
+                    JasperDesign jd = JRXmlLoader.load(
+                            "C:\\Users\\khanh\\Documents\\NetBeansProjects\\quanlykhachsan\\src\\thongke\\report\\InHDKKM.jrxml"
+                    );
+                    JasperReport jr = JasperCompileManager.compileReport(
+                            "C:\\Users\\khanh\\Documents\\NetBeansProjects\\quanlykhachsan\\src\\thongke\\report\\InHDKKM.jrxml"
+                    );
+
+                    HashMap hm = new HashMap();
+                    hm.put("SoHD1", sohd);
+
+                    JasperPrint jp = JasperFillManager.fillReport(jr, hm, Database.getConnection());
+                    JasperViewer.viewReport(jp, false);
+
+                    java.text.SimpleDateFormat sdm = new java.text.SimpleDateFormat("dd MM yyyy hh mm ss");
+
+                    String fileName = "report " + sdm.format(new java.util.Date()) + ".pdf";
+
+                    JasperExportManager.exportReportToPdfFile(
+                            jp, "C:\\Users\\khanh\\Documents\\NetBeansProjects\\quanlykhachsan\\src\\thongke\\report" + fileName
+                    );
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Cannot show report" + e);
+                    e.printStackTrace();
+                }
+            }
         }
     }//GEN-LAST:event_btnIHDActionPerformed
 

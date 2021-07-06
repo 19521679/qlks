@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TOPDICHVU" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4b1b3d35-cbf3-477f-b4f5-e041ee9542df">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Từ ngày" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Đến ngày" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Top" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT DV.MADV, DV.TENDV, COUNT(*) AS SLHD
+FROM DICHVU DV, THUE_DICH_VU TDV
+WHERE DV.MADV = TDV.MADV AND NGAYBD >=$P{Từ ngày}
+AND NGAYKT <= $P{Đến ngày}
+GROUP BY DV.MADV, DV.TENDV
+ORDER BY SLHD
+ FETCH NEXT $P{Top} ROWS ONLY]]>
+	</queryString>
+	<field name="MADV" class="java.lang.String"/>
+	<field name="TENDV" class="java.lang.String"/>
+	<field name="SLHD" class="java.math.BigDecimal"/>
+	<variable name="SLHD_1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{SLHD}]]></variableExpression>
+	</variable>
+	<group name="MADV">
+		<groupExpression><![CDATA[$F{MADV}]]></groupExpression>
+	</group>
+	<group name="TENDV">
+		<groupExpression><![CDATA[$F{TENDV}]]></groupExpression>
+	</group>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="79" forecolor="#FFCCCC" backcolor="#000000" uuid="808c08f4-519d-4e82-ab4e-a1cc63154524"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None">
+					<font fontName="Segoe UI" size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[         DỊCH VỤ ĐƯỢC SỬ DỤNG NHIỀU]]></text>
+			</staticText>
+			<image>
+				<reportElement x="26" y="13" width="76" height="49" uuid="2f7d12fa-17b0-4f6f-acba-39b8ae200f3a"/>
+				<imageExpression><![CDATA["C:\\Users\\khanh\\Documents\\NetBeansProjects\\quanlykhachsan\\src\\thongke\\report\\212664618_230825415362548_1112387875735302315_n.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="205" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="107" width="555" height="98" uuid="f23c4e52-1e25-4056-9642-a5f9a820c302"/>
+				<staticText>
+					<reportElement mode="Opaque" x="197" y="54" width="157" height="44" backcolor="#FFCCCC" uuid="db5c6acd-32df-4f81-aa2a-85bd1914feae"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Segoe UI" size="14" isBold="true" isItalic="false" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[MÃ LOẠI PHÒNG]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="354" y="54" width="201" height="44" backcolor="#FFCCCC" uuid="d4eda6af-ae90-4403-9f24-83a652dc5db0"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Segoe UI" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[SỐ LƯỢNG HĐ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="555" height="54" backcolor="#FFCCCC" uuid="b6179d1f-5d56-4ba7-bdbf-51fc9f3722f8"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Segoe UI" size="16" isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[DỊCH VỤ ĐƯỢC KHÁCH HÀNG LỰA CHỌN NHIỀU]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="54" width="197" height="44" backcolor="#FFCCCC" uuid="074d6026-e20d-48bf-8a84-ea161a1b231c"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Segoe UI" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[MÃ DỊCH VỤ]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement mode="Transparent" x="0" y="54" width="197" height="44" backcolor="#FFCCCC" uuid="b8271db8-bf87-45fb-8ebf-ec3e7f4cb814"/>
+					<graphicElement>
+						<pen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="197" y="54" width="178" height="44" backcolor="#FFCCCC" uuid="048915fd-b652-4074-a26e-6b69dd060b5c"/>
+					<graphicElement>
+						<pen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="375" y="54" width="180" height="44" backcolor="#FFCCCC" uuid="c9d11f17-a249-498d-a792-58c4ac3336f4"/>
+					<graphicElement>
+						<pen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="0" y="1" width="555" height="53" uuid="3d9e60f1-c5ae-4e4a-8647-98deb28b20f3"/>
+					<graphicElement>
+						<pen lineStyle="Solid" lineColor="#000000"/>
+					</graphicElement>
+				</rectangle>
+				<image>
+					<reportElement x="473" y="0" width="64" height="54" uuid="af77d55e-ce0a-4b7e-aae5-2904cdec0ce0"/>
+					<imageExpression><![CDATA["C:\\Users\\khanh\\Documents\\NetBeansProjects\\quanlykhachsan\\src\\thongke\\report\\top-rated.png"]]></imageExpression>
+				</image>
+			</frame>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="139" y="32" width="134" height="27" uuid="68a4287c-110b-4522-b1f8-23f8155cee50"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Từ ngày}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="139" y="59" width="134" height="25" uuid="8baaf58b-a3ac-4a85-9b3a-2f604faf603e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Đến ngày}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="15" y="32" width="124" height="27" uuid="bc0f47a7-07d7-40aa-8b98-dfc99e8a2bb2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Từ ngày]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="59" width="124" height="25" uuid="ca5bbc06-741e-48d8-a914-1ccdc3525764"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Đến ngày]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="437" y="59" width="100" height="28" uuid="2423e7f2-214f-434f-832b-423698b9c1e8"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Top}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="396" y="59" width="41" height="28" uuid="9141c803-7860-490c-bb7f-672bb4715bc8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOP: ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="15" y="32" width="124" height="26" forecolor="#FF6666" uuid="9da99bed-26a7-4c6a-b620-5c3ab3ad431f"/>
+				<graphicElement>
+					<pen lineWidth="1.25" lineStyle="Dashed"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="139" y="32" width="134" height="26" forecolor="#FF6666" uuid="20430baa-396b-4bdf-9953-9ea04e57a7f7"/>
+				<graphicElement>
+					<pen lineWidth="1.25" lineStyle="Dashed"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="15" y="58" width="124" height="26" forecolor="#FF6666" uuid="f30ca262-e5bc-46b5-9a05-73c94bd7492f"/>
+				<graphicElement>
+					<pen lineWidth="1.25" lineStyle="Dashed"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="139" y="58" width="134" height="26" forecolor="#FF6666" uuid="0afd5462-3c74-4ba3-94d1-41185ea90843"/>
+				<graphicElement>
+					<pen lineWidth="1.25" lineStyle="Dashed"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="386" y="61" width="96" height="26" forecolor="#FF6666" uuid="6a368918-734d-43ce-b4e8-61b2f1e0d29e"/>
+				<graphicElement>
+					<pen lineWidth="1.25" lineStyle="Dashed"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="44" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="197" height="44" uuid="de91804c-e934-4c2f-a694-00d6532d1eb1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MADV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="197" y="0" width="178" height="44" uuid="bd429d86-d3f2-46aa-b896-5cdcb2c447cf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TENDV}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Column">
+				<reportElement x="375" y="0" width="180" height="44" uuid="86a855be-85b4-44b5-8667-3c26babae4ee"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SLHD_1}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="0" width="197" height="44" backcolor="#FFCCCC" uuid="c855341d-87f2-469b-8284-2e2eb17ff158"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="197" y="0" width="178" height="44" backcolor="#FFCCCC" uuid="89ff19bb-38c9-4db1-a2dc-50ebb7857a40"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="375" y="0" width="180" height="44" backcolor="#FFCCCC" uuid="779489ee-d4e8-4cc9-aad5-9fc4cfcd3ec8"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</detail>
+</jasperReport>
