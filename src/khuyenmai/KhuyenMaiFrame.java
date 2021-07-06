@@ -174,7 +174,6 @@ public class KhuyenMaiFrame extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabelAVT = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
         txtSearch = new javax.swing.JTextField();
         jLabelTN = new javax.swing.JLabel();
         btnSearch = new javax.swing.JButton();
