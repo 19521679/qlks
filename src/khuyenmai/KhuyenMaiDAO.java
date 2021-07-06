@@ -205,14 +205,14 @@ public class KhuyenMaiDAO {
         try {
             ps = connection.prepareStatement(SQL);
 
-            ps.setString(1, km.getMAKM());
-            ps.setString(2, km.getTENKM());
-            ps.setString(3, km.getMOTA());
-            ps.setFloat(4, km.getTILE());
 
-            ps.setDate(5, new java.sql.Date(km.getNGBD().getTime()));
-            ps.setDate(6, new java.sql.Date(km.getNGKT().getTime()));
+            ps.setString(1, km.getTENKM());
+            ps.setString(2, km.getMOTA());
+            ps.setFloat(3, km.getTILE());
 
+            ps.setDate(4, new java.sql.Date(km.getNGBD().getTime()));
+            ps.setDate(5, new java.sql.Date(km.getNGKT().getTime()));
+            ps.setString(6, km.getMAKM());
             ps.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();

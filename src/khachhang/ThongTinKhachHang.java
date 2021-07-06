@@ -35,7 +35,6 @@ public class ThongTinKhachHang extends javax.swing.JFrame {
 
     private void paintView()
     {
-        System.out.println(khachhang.toString());
         txtMAKH.setText(khachhang.getMAKH());
         txtTENKH.setText(khachhang.getTENKH());
         txtCMND.setText(khachhang.getCMND());

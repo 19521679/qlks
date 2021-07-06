@@ -8,7 +8,8 @@ package hoadon;
 import Util.MyColor;
 
 import java.awt.*;
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 
 import Util.MyPrinter;
@@ -28,8 +29,6 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import phong.PhongDAO;
 
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -80,6 +79,16 @@ public class HoaDonFrame extends javax.swing.JFrame {
 
             }
         };
+        jPanel2 = new JPanel() {
+
+            @Override
+            protected void paintComponent(Graphics g) {
+
+                super.paintComponent(g);
+                g.drawImage(image2, 0, 0, null);
+
+            }
+        };
         initComponents();
         btnTT.setEnabled(false);
         dateTN.setDateFormatString("dd-MM-yyyy");
@@ -121,10 +130,11 @@ public class HoaDonFrame extends javax.swing.JFrame {
     }
 
     private Image image = Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/background/background.png"));
+    private Image image2 = Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/background/hoadonpanel.png"));
 
 
     private void painthd() {
-
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         for (HoaDon k : listhd) {
 
             Image image1 = Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/background/background.png"));
@@ -144,9 +154,17 @@ public class HoaDonFrame extends javax.swing.JFrame {
             String space = "                              ";
             String noidung = k.getSOHD() + "    |  " + k.getMAKH() + "           |  " + new KhachHangDAO().queryKHbyHD(k).getTENKH() + space.substring(new KhachHangDAO().queryKHbyHD(k).getTENKH().length()) +
                     "               " + MyConvert.parseIntToString(new PhongDAO().queryTPBySOHD(k).size()) +
-                    "                |                  " + MyConvert.parseIntToString(new DichVuDAO().queryTDVBySOHD(k).size()) +
+                    "                                   " + MyConvert.parseIntToString(new DichVuDAO().queryTDVBySOHD(k).size()) +
                     "       ";
-
+            Date startDate = new Date(new PhongDAO().queryTPBySOHD(k)
+                    .stream()
+                    .mapToLong(v -> v.getNGBD().getTime())
+                    .min().orElseThrow(NoSuchElementException::new));
+            Date endDate = new Date(new PhongDAO().queryTPBySOHD(k)
+                    .stream()
+                    .mapToLong(v -> v.getNGKT().getTime())
+                    .max().orElseThrow(NoSuchElementException::new));
+            noidung+="            "+format.format(startDate)+ "       "+format.format(endDate);
             btnTemp.setText(noidung);
             btnTemp.setHorizontalAlignment(SwingConstants.LEFT);
             btnTemp.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -199,7 +217,7 @@ public class HoaDonFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabelAVT = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+
         jLabelDN = new javax.swing.JLabel();
         jLabelTN = new javax.swing.JLabel();
         dateTN = new com.toedter.calendar.JDateChooser();
@@ -365,7 +383,7 @@ public class HoaDonFrame extends javax.swing.JFrame {
         jLabel5.setText("Tên khách hàng");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setText("Số dịch vụ đã đặt");
+        jLabel7.setText("Số dịch vụ");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Số phòng đã đặt");

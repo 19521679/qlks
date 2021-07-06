@@ -29,6 +29,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 
 /**
  * @author HP
@@ -46,8 +47,12 @@ public class home extends javax.swing.JFrame {
         System.out.println("nhanvien:"+nhanvien.toString());
         return nhanvien;
     }
+
+
     public home() {
 
+
+        setTitle("Khách sạn Sun Shine");
         setIconImage(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/logo.png")));
 
         addWindowListener(new WindowAdapter()
@@ -121,6 +126,8 @@ public class home extends javax.swing.JFrame {
         }
 
         initComponents();
+
+
         setVisible(true);
     }    /**
      * This method is called from within the constructor to initialize the form.
@@ -167,7 +174,6 @@ public class home extends javax.swing.JFrame {
         }
 
         jTabbedPane5.addTab("Thông tin tài khoản     ", new javax.swing.ImageIcon(getClass().getResource("/icon/taikhoan.png")), jPanelTK); // NOI18N
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(

@@ -111,7 +111,7 @@ public class NhanVienDAO {
     }
 
     public void update(NhanVien nv) {
-        String SQL = "update NHANVIEN set  HOTEN=?, MAQL=?, GIOITINH=?,  DCHI=?, SDT=?, NGSINH=?, NGVL=?, LUONG=? where MANV = ?";
+        String SQL = "update NHANVIEN set MAQL=?, GIOITINH=?,  DCHI=?, SODT=?, NGSINH=?, NGVL=?, LUONG=?, HOTEN=? where MANV = ?";
 
 
         PreparedStatement ps = null;
@@ -128,7 +128,7 @@ public class NhanVienDAO {
             ps.setDate(6, new java.sql.Date(nv.getNGVL().getTime()));
             ps.setInt(7, nv.getLUONG());
             ps.setString(8, nv.getHOTEN());
-
+            ps.setString(9, nv.getMANV());
             ps.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();

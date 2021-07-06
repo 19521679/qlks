@@ -47,6 +47,7 @@ public class DatPhong extends javax.swing.JFrame {
     private Thread threadNhan;
     private KhuyenMai khuyenmai;
     private ArrayList<ThuePhong> listThuePh = new ArrayList<>();
+    private Image image = Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/background/backgrounddatphong.png"));
 
     private HoaDon hoadon;
 
@@ -54,12 +55,13 @@ public class DatPhong extends javax.swing.JFrame {
     /**
      * Creates new form DatPhong
      */
-    private Image image = Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/background/background.png"));
     private Image image2 = Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/Sanpham.png"));
 
     public DatPhong() {
+        setTitle("Khách sạn Sun Shine");
         setIconImage(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/logo.png")));
         initComponents();
+        jPanelDP.setBackground(new Color(255, 245, 204));
         dateTuNgay.setDateFormatString("dd-MM-yyyy");
         dateDenNgay.setDateFormatString("dd-MM-yyyy");
         btnKH.setFont(new Font("Tahoma", 0, 16));

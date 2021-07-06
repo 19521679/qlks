@@ -262,7 +262,7 @@ public class ThongTinKM extends javax.swing.JFrame {
 
         try {
             txtMAKM.setText(km.getMAKM());
-            txtMAKM.setText(km.getTENKM());
+            txtTENKM.setText(km.getTENKM());
             txtMT.setText(km.getMOTA());
             txtTL.setText(MyConvert.parseFloatToString(km.getTILE()));
             dateNGBD.setDate(km.getNGBD());

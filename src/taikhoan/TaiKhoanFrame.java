@@ -72,10 +72,10 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
     private void paintKM(ArrayList<TaiKhoan> list) {
         for (TaiKhoan p : list) {
             JButton btnTemp = new javax.swing.JButton();
-            btnTemp.setBackground(new java.awt.Color(255, 245, 245));
+            btnTemp.setBackground(new Color(178, 255, 209));
             btnTemp.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-            btnTemp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/khthuong.png"))); // NOI18N
-            btnTemp.setText("   " + p.getUSERNAME() + "    |   " + p.getMANV() + "      " + p.getPASSWORD() + "      " + p.getTRANGTHAI() + "       " + p.getTGDNGN() + "         " + p.getPC());
+          //  btnTemp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/khthuong.png"))); // NOI18N
+            btnTemp.setText(" " + p.getUSERNAME() + "         |      " + p.getMANV() +  "                   " + p.getPASSWORD() + "                       " + p.getTRANGTHAI() + "                    " + p.getTGDNGN() + "                                            " + p.getPC());
             btnTemp.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
             btnTemp.setIconTextGap(40);
             btnTemp.setMaximumSize(new java.awt.Dimension(115, 60));
@@ -102,7 +102,7 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
         if (listTK.size() < 8)
             for (int i = 0; i < 8 - listTK.size(); i++) {
                 Button btnTemp = new Button();
-                btnTemp.setBackground(Color.WHITE);
+                btnTemp.setBackground(new Color(247, 255, 248));
                 btnTemp.setEnabled(false);
                 jPanel8.add(btnTemp);
             }
@@ -424,7 +424,7 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
                         try { //code sau khi mở lại luồng chính
                             threadTOTTTK.wait();
 
-                            reSet();
+                            dataChange();
                         } catch (InterruptedException e) {
                         }
                     }
@@ -462,7 +462,7 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
             if (result == JOptionPane.YES_OPTION) {
                 TKDAO.delete(listIsSelected.get(0));
 
-                reSet();
+                dataChange();
             }
         }
     }//GEN-LAST:event_btnXActionPerformed
@@ -484,7 +484,7 @@ public class TaiKhoanFrame extends javax.swing.JFrame {
                             try { //code sau khi mở lại luồng chính
                                 threadTOTTTK.wait();
 
-                                reSet();
+                                dataChange();
                             } catch (InterruptedException e) {
                             }
                         }

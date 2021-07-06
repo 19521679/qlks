@@ -31,6 +31,8 @@ private ArrayList<DichVu> listDV ;
     public DichVuFrameNew() {
 
         initComponents();
+        tablePanel1.setBackground(Color.WHITE);
+        jTable2.setBackground(Color.WHITE);
         listDV = DVDAO.queryAllDichVu();
         reset();
     }

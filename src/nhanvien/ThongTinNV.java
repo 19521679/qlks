@@ -293,6 +293,7 @@ public class ThongTinNV extends javax.swing.JFrame {
 
     private void creatNV() {
         nv = new NhanVien();
+        nv.setMANV(txtMANV.getText());
         nv.setHOTEN(txtTENNV.getText());
         nv.setMAQL(txtMAQL.getText());
         nv.setGIOITINH(txtGT.getText());

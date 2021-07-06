@@ -4,9 +4,9 @@ import java.awt.*;
 
 public class MyColor {
     public static Color colorVIP = new Color(248, 245, 241);
-    public static Color colorDon = new Color(169, 218, 173);
-    public static Color colorDoi = new Color(215, 24, 183, 255);
-    public static Color colorFull = new Color(42, 171, 225);
+    public static Color colorDon = new Color(229, 169, 140);
+    public static Color colorDoi = new Color(30, 161, 167);
+    public static Color colorFull = new Color(76, 170, 246);
     public static Color colorThanhVien = new Color(255, 216, 156);
     public static Color colorThuong = new Color(145, 191, 191);
     public static Color xanhlam = new Color(71, 200, 255);

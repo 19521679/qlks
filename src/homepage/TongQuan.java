@@ -52,6 +52,7 @@ public class TongQuan extends javax.swing.JFrame {
      */
     private PhongDAO PDAO = new PhongDAO();
     private Thread threadGui;
+    private Image image2 = Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/background/tongquanpanel.png"));
 
     public TongQuan() {
         jPanel1 = new JPanel() {
@@ -64,7 +65,19 @@ public class TongQuan extends javax.swing.JFrame {
 
             }
         };
+        jPanel3 = new JPanel() {
+
+            @Override
+            protected void paintComponent(Graphics g) {
+
+                super.paintComponent(g);
+                g.drawImage(image2, 0, 0, null);
+
+            }
+        };
+
         initComponents();
+        jPanel4.setBackground(Color.WHITE);
         listJCheckbox.add(jCheckBox1);
         listJCheckbox.add(jCheckBox2);
         listJCheckbox.add(jCheckBox3);
@@ -120,7 +133,9 @@ public class TongQuan extends javax.swing.JFrame {
         listPhongDon = PDAO.queryPhongDon();
         listPhongDoi = PDAO.queryPhongDoi();
         listPhongVIP = PDAO.queryPhongVIP();
+
         listBaoTri = PDAO.queryPhongBaoTri();
+        jPanel1.setBackground(new Color(252,244,236));
         dataChange();
     }
 
@@ -216,7 +231,7 @@ public class TongQuan extends javax.swing.JFrame {
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        jPanel3 = new javax.swing.JPanel();
+
         jLabelTN = new javax.swing.JLabel();
         jLabelDN = new javax.swing.JLabel();
         dateTuNgay = new com.toedter.calendar.JDateChooser();
@@ -350,14 +365,14 @@ public class TongQuan extends javax.swing.JFrame {
             }
         });
 
-        btnFull.setBackground(new java.awt.Color(0, 0, 255));
+        btnFull.setBackground(MyColor.colorFull);
         btnFull.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFullActionPerformed(evt);
             }
         });
 
-        btnDoi.setBackground(new java.awt.Color(255, 153, 153));
+        btnDoi.setBackground(MyColor.colorDoi);
         btnDoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDoiActionPerformed(evt);
@@ -367,7 +382,7 @@ public class TongQuan extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel4.setText("Phòng đôi");
 
-        btnDon.setBackground(new java.awt.Color(102, 255, 102));
+        btnDon.setBackground(MyColor.colorDon);
         btnDon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDonActionPerformed(evt);
@@ -377,7 +392,7 @@ public class TongQuan extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel5.setText("Phòng đơn");
 
-        btnVIP.setBackground(new java.awt.Color(255, 200, 0));
+        btnVIP.setBackground(MyColor.colorVIP);
         btnVIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVIPActionPerformed(evt);

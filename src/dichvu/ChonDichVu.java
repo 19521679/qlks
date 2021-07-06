@@ -42,6 +42,7 @@ public class ChonDichVu extends javax.swing.JFrame {
     }
 
     public ChonDichVu() {
+        setTitle("Khách sạn Sun Shine");
         setIconImage(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/logo.png")));
         listDv = DVDAO.queryAllDichVu();
         initComponents();

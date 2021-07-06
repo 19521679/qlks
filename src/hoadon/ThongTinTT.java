@@ -146,7 +146,8 @@ public class ThongTinTT extends javax.swing.JFrame {
             btnTemp.setBackground(new java.awt.Color(255, 245, 245));
             btnTemp.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
             btnTemp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/dichvu.png"))); // NOI18N
-            btnTemp.setText("MADV: " + p.getMADV() + "| Tên dịch vụ: " + DVDAO.queryDVByTDV(p).getTENDV() + "  | ĐƠn giá: " + DVDAO.queryDVByTDV(p).getGIADV() + "   | Số ngày thuê:  " + DVDAO.soNgayThueDVbyTDV(p) + "  | Tiền dịch vụ: " + p.getTIEN());
+            String space = "                              ";
+            btnTemp.setText("MADV: " + p.getMADV() + "| Tên dịch vụ: " + DVDAO.queryDVByTDV(p).getTENDV() +space.substring(DVDAO.queryDVByTDV(p).getTENDV().length())+ "  | Đơn giá: " + DVDAO.queryDVByTDV(p).getGIADV() + "   | Số ngày thuê:  " + DVDAO.soNgayThueDVbyTDV(p) + "  | Tiền dịch vụ: " + p.getTIEN());
             btnTemp.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
             btnTemp.setIconTextGap(40);
             btnTemp.setMaximumSize(new java.awt.Dimension(115, 60));

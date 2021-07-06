@@ -233,21 +233,21 @@ public class ThongTinTK extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Bạn chưa nhập Mã nhân viên", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
         else {
             switch (isInstance) {
-                case 1: {
+                case MyInstance.IS_ADD: {
                     creattk();
                     tkDAO.insert(tk);
                 }
                 break;
-                case 2: {
+                case MyInstance.IS_REMOVE: {
                     tkDAO.delete(tk);
                 }
                 break;
-                case 3: {
+                case MyInstance.IS_EDIT: {
                     creattk();
                     tkDAO.update(tk);
                 }
                 break;
-                case 4: {
+                case MyInstance.IS_FIND: {
                     creattk();
                     tkDAO.find(tk);
                 }

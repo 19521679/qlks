@@ -659,7 +659,7 @@ public class ThongKeFrame extends javax.swing.JFrame {
             JasperReport jr = JasperCompileManager.compileReport(
                     "C:\\Users\\khanh\\Documents\\NetBeansProjects\\quanlykhachsan\\src\\thongke\\report\\DoanhThuThang.jrxml"
             );
-            Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/London"));
+            Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Asian/HoChiMinh"));
             cal.setTime(dateTN.getDate());
             int year = cal.get(Calendar.YEAR);
             int month = cal.get(Calendar.MONTH);

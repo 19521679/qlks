@@ -51,6 +51,8 @@ public class KhuyenMaiFrame extends javax.swing.JFrame {
      * Creates new form KhuyenMaiFrame
      */
     public KhuyenMaiFrame() {
+        setTitle("Khách sạn Sun Shine");
+        setIconImage(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/logo.png")));
         jPanel3 = new JPanel() {
 
             @Override
@@ -114,9 +116,9 @@ public class KhuyenMaiFrame extends javax.swing.JFrame {
             btnTemp.setBackground(colorTemp);
             btnTemp.setIcon(imgTemp); // NOI18N
             SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-            String space = "                      ";
+            String space = "                                          ";
             String noidung = k.getMAKM() + "                             |  " + k.getTENKM() + space.substring(k.getTENKM().length()) +
-                    "               " + MyConvert.parseFloatToString(k.getTILE()) +
+                    " " + MyConvert.parseFloatToString(k.getTILE()) +
                     "                     ";
             String ngbd;
             String ngkt;

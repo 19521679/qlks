@@ -105,7 +105,7 @@ listTDVIsSelected.removeAll(listTDVIsSelected);
             btnTemp.setBackground(new java.awt.Color(255, 245, 245));
             btnTemp.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
             btnTemp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/thuephong.png"))); // NOI18N
-            btnTemp.setText("MAPH: " + p.getMAPH() + "   | Số người thuê: " + p.getSONGUOITHUE() + "  | Đơn giá: " + (new DanhSachPhongDAO().queryDSPbyTP(p)).getDONGIA() + "   | Số ngày thuê:  " + PDAO.querySoNgayThueByTP(p) + "  | Tiền phòng: " + p.getTIEN() +"   phụ thu:"+p.getPHUTHU());
+            btnTemp.setText("MAPH: " + p.getMAPH() + "   | Số người thuê: " + p.getSONGUOITHUE() + "  | Đơn giá: " + (new DanhSachPhongDAO().queryDSPbyTP(p)).getDONGIA() + "   | Số ngày thuê:  " + PDAO.querySoNgayThueByTP(p) + "  | Tiền phòng: " + p.getTIEN() +"   Phụ thu:"+p.getPHUTHU());
             btnTemp.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
             btnTemp.setIconTextGap(40);
             btnTemp.setMaximumSize(new java.awt.Dimension(115, 60));
@@ -144,7 +144,8 @@ listTDVIsSelected.removeAll(listTDVIsSelected);
             btnTemp.setBackground(new java.awt.Color(255, 245, 245));
             btnTemp.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
             btnTemp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/dichvu.png"))); // NOI18N
-            btnTemp.setText("MADV: " + p.getMADV() + "  | Tên dịch vụ: " + DVDAO.queryDVByTDV(p).getTENDV() + "  | Đơn giá: " + DVDAO.queryDVByTDV(p).getGIADV() + "   | Số ngày thuê:  " + DVDAO.soNgayThueDVbyTDV(p) + "  | Tiền dịch vụ: " + p.getTIEN());
+            String space = "                              ";
+            btnTemp.setText("MADV: " + p.getMADV() + "  | Tên dịch vụ: " + DVDAO.queryDVByTDV(p).getTENDV() +space.substring(DVDAO.queryDVByTDV(p).getTENDV().length())+ "  | Đơn giá: " + DVDAO.queryDVByTDV(p).getGIADV() + "   | Số ngày thuê:  " + DVDAO.soNgayThueDVbyTDV(p) + "  | Tiền dịch vụ: " + p.getTIEN());
             btnTemp.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
             btnTemp.setIconTextGap(40);
             btnTemp.setMaximumSize(new java.awt.Dimension(115, 60));

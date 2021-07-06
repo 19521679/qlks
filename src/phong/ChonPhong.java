@@ -50,6 +50,7 @@ public class ChonPhong extends javax.swing.JFrame {
     }
 
     public ChonPhong() {
+        setTitle("Khách sạn Sun Shine");
         setIconImage(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/drawable/logo.png")));
         initComponents();
         dateTuNgay.setDateFormatString("dd-MM-yyyy");

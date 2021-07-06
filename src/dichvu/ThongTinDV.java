@@ -28,7 +28,7 @@ public class ThongTinDV extends javax.swing.JFrame {
     /**
      * Creates new form ThongTinDV
      */
-    private Integer isInstance = 0;
+    private int isInstance = 0;
     private Thread threadNhan;
     DichVuDAO DVDAO = new DichVuDAO();
     DichVu dv;
@@ -259,21 +259,18 @@ public class ThongTinDV extends javax.swing.JFrame {
         {
 
             switch (isInstance) {
-                case 1: {
+                case MyInstance.IS_ADD: {
                     creatDV();
                     DVDAO.insertDatabase(dv);
                 }
                 break;
-                case 2: {
-                    //DVDAO.(dsp);
-                }
-                break;
-                case 3: {
+
+                case MyInstance.IS_EDIT: {
                     creatDV();
                     DVDAO.updateDatabase(dv);
                 }
                 break;
-                case 4: {
+                case MyInstance.IS_FIND: {
                     creatDV();
                     listDV=DVDAO.queryByDichVu(dv);
                 }
